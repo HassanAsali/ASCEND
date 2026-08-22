@@ -1,109 +1,118 @@
 <div align="center">
 
-# 🌌 ASCEND // Personal Operating System (OS)
-### *A custom-built, privacy-first productivity system designed to turn real-world engineering, studies, and daily work into a rewarding game-like progression loop.*
+# 🌌 ASCEND // Personal Progression OS
+### *A locally-encrypted, AI-assisted productivity ecosystem built entirely through AI-Driven Development (Vibe Coding).*
 
 ![Version](https://img.shields.io/badge/Version-v0.6.0.11.3%20(Beta)-blue?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Private_Beta-orange?style=for-the-badge)
-![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20PWA%20(iOS%2C%20Android%2C%20Desktop)-lightgrey?style=for-the-badge)
-![Tech Stack](https://img.shields.io/badge/Stack-Node.js%20%7C%20Supabase%20%7C%20Vanilla%20JS%20%7C%20AES-GCM-success?style=for-the-badge)
+![Development](https://img.shields.io/badge/Development-100%25%20AI%20Generated%20(Vibe%20Coding)-purple?style=for-the-badge)
+![Tech Stack](https://img.shields.io/badge/Stack-Vanilla%20JS%20%7C%20Node.js%20%7C%20Supabase-success?style=for-the-badge)
+![Security](https://img.shields.io/badge/Security-AES--256--GCM%20%7C%20RSA--OAEP-red?style=for-the-badge)
 
-[Overview](#-overview) • [Core Modules](#-comprehensive-system-modules-page-by-page) • [System Integrity](#-system-integrity-what-grants-xp) • [Security & Architecture](#-security--architecture)
+[The Vibe Coding Journey](#-the-vibe-coding-journey-building-without-typing) • [System Architecture](#-system-architecture--technical-deep-dive) • [Security & Encryption](#-security--cryptography-the-client-side-vault) • [Anti-Cheat Engine](#-database-design--anti-cheat-mechanics) • [Lessons Learned](#-lessons-learned-for-ai-driven-developers)
 
 </div>
 
 ---
 
-## 🎯 Overview
+## 🤖 The Vibe Coding Journey: Building Without Typing
 
-**ASCEND** is a private, custom-built productivity system created entirely through vibe-coding. Built out of a personal need to beat laziness and avoid expensive, restricted task apps, it combines an AI task parser with a strict leveling and ranking system. 
+Let me be upfront: **I do not know how to code in the traditional sense.** 
 
-Instead of getting free XP for just organizing things, ASCEND follows one simple rule: **You only get XP and rank-ups by actually finishing real work.**
+I built ASCEND entirely through **AI-Driven Development (Vibe Coding)**. I acted as the systems architect, product manager, and prompt engineer, while AI tools wrote every single line of code. 
 
----
+I started with a personal problem: extreme procrastination and the mental friction of managing messy tasks. I wanted a gamified system that strictly rewarded real-world execution, not just planning. However, I didn't want to pay monthly subscriptions for rigid apps, and since I was already paying for AI tools, I decided to prompt my way into building my own.
 
-## 🏛️ Comprehensive System Modules: Page-by-Page Breakdown
+What started as a simple AI task parser evolved into a massive, highly secure Progressive Web App (PWA). Through hundreds of hours of prompting, debugging loops, and architectural refinements, I guided the AI to implement complex features like **client-side AES encryption, Supabase Row-Level Security (RLS), and zero-exploit RPG progression algorithms.**
 
-ASCEND is organized into a clean sidebar menu, where every page has a specific purpose to keep things simple and clear:
-
-### 1. 🎛️ Command Center (The Main Dashboard)
-* **Player Status HUD:** Shows your name, current specialization (e.g., Thermal Mechanical Engineer in Progress), Level, and Rank tier alongside your total XP progress.
-* **Today's Directive:** Highlights your most important task for the day so you don't waste time thinking about what to do first.
-* **Encrypted Shareable Request Channel:** Creates a secure link that lets other people send task or meeting requests directly to your private inbox safely.
-* **AI Quest Console (Gemini Engine):** Type or use voice notes in Arabic or English. The AI breaks down your text into tasks, estimates the time needed, and sets the XP.
-* **Core Skills Matrix:** Tracks your practical skills (*Execution, Problem Solving, Planning, Decision Making, etc.*) as they grow naturally when you finish tasks.
-
-> ![Command Center Preview](command-center.png)
+This repository stands as proof of what is possible when you combine clear system logic with AI generation.
 
 ---
 
-### 2. 📋 Quest Board (Quest Management)
-* **Operational Lanes:** Filter your tasks easily between Daily Protocols, Main Objectives, Side Quests, Campaigns, and Boss tiers.
-* **Dated Daily Protocols:** Unfinished daily tasks automatically move to your current local date while keeping your partial progress saved.
-* **The "Undo Today" Safeguard:** If you accidentally check off a daily task, you can reverse it so your progress stays honest.
-* **System-Locked Reward Fields:** Task difficulty, priority, and time fields lock automatically after being created so nobody can cheat and inflate their XP.
+## 🏗️ System Architecture & Technical Deep Dive
 
-> ![Quest Board Preview](quest-board.png)
+To ensure the AI could reliably generate and debug code without hallucinating, I deliberately avoided heavy frontend frameworks like React or Vue. ASCEND is built on a lightweight, highly decoupled architecture.
 
----
-
-### 3. 🗺️ Projects (Project Map & Architect)
-* *“Build outcomes, not giant task lists.”* Breaks big multi-week projects down into smaller workstreams and step-by-step tasks.
-* **AI Project Architect:** Takes a big project goal and automatically drafts a full breakdown structure for your review.
-
-> ![Project Map Preview](project-map.png)
+### The Tech Stack
+* **Frontend:** Vanilla HTML5, CSS3, and modular ES6 JavaScript (`app.js`, `planner-system.js`, `daily-cycle.js`). Keeping it vanilla allowed the AI to manipulate the DOM predictably.
+* **Backend / Database:** Supabase (PostgreSQL) with strict Row-Level Security (RLS) policies enforcing user data isolation.
+* **Serverless Middlewares:** Node.js Edge Functions (via Vercel) for secure API routing and Turnstile verification.
+* **AI Engine:** Google Gemini API (Semantic analysis, text parsing).
+* **Security:** Native Web Crypto API (AES-256-GCM, RSA-OAEP).
 
 ---
 
-### 4. 📅 Planner & Semester Engine (The XP-Free Zone)
-* **Structured Lists & Semesters:** Manage course codes, target levels, reading lists, and preparation checklists.
-* **7-Day Class & Commitment Timetable:** A visual calendar tracking your lectures, work blocks, and study sessions with conflict detection.
+## 🔐 Security & Cryptography (The Client-Side Vault)
 
-### 5. 🌱 Habits (Personal Rhythms & Consistency)
-* Built for daily habits (like drinking water or reading) that are kept separate from main tasks. Features 7-day viewports, custom schedules, and streak counters.
+One of the most complex engineering challenges I prompted the AI to solve was ensuring absolute data privacy. **The server does not know what your tasks are.**
 
-### 6. 🤝 Circles & Friends (Private Social & Focus Networks)
-* **Private Focus Circles:** Create study groups using invite codes to collaborate on shared sessions. Uses an isolated **Circle Contribution XP** system calculated server-side based on actual active time.
-* **Private Friends Network:** Connect using secure private codes to share tasks and view each other's progress on a clean shared board.
+### 1. End-to-End Encryption (AES-256-GCM)
+Instead of storing plaintext strings in the database, the `player_state` is encrypted locally inside the browser *before* any API call is made. 
+* We utilize `window.crypto.subtle` to generate an AES-GCM encryption key.
+* The encrypted payload is uploaded to Supabase.
+* **The Recovery File:** Because the server holds zero decryption keys, the user is prompted to download a `.txt` Recovery File upon registration. This file acts as the local decryption key. If you log in on a new device, the system intercepts the onboarding flow and demands the Recovery Key to unlock the vault.
 
-> ![Focus Circles Preview](focus-circles.png)
-
----
-
-### 7. 📊 Progress, Guide & System (Intelligence & Configuration)
-* **Progress Intelligence:** 7-day XP charts, completed task counts, active days, and Rank trial requirements.
-* **Progression Guide (Quest Tree):** A visual map showing your unlocked branches (*System Foundation, University Route, Career Route, Engineering Route*).
-* **System Configuration:** Manages your profile, active seasons, cloud sync recovery keys, guided tours, notification settings, and a direct **Feedback & Development** box.
-
-> ![Progress Intelligence Preview](progress-intelligence.png)
+### 2. Hybrid Encryption for External Requests (RSA + AES)
+To allow external friends to send tasks to a player without needing an account, I designed an inbox system using hybrid encryption:
+1. The player generates a public/private RSA-OAEP-256 key pair. 
+2. The private key is encrypted by the player's AES Recovery Key and stored in the database.
+3. The public key is embedded in a shareable hashed URL.
+4. When a guest submits a request, their browser encrypts the payload using a one-time AES key, which is then wrapped in the player's RSA public key.
 
 ---
 
-## ⚖️ System Integrity: What Grants XP?
+## 🤖 AI Engine & Semantic Processing
 
-ASCEND keeps a clear line between planning and actual work:
+ASCEND integrates the Gemini API not as a conversational chatbot, but as an invisible semantic parser that builds structured JSON data from natural language.
 
-| Action | Grants Account XP? | Affects Rank? | Description |
-|----------------|:---:|:---:|-------------|
-| **Completing a Main/Side Quest** | ✅ Yes | ✅ Yes | Core progression based on verified effort and difficulty. |
-| **Completing a Subquest** | ✅ Yes | ✅ Yes | Smaller steps that contribute to a larger Project milestone. |
-| **Adding items to Planner** | ❌ No | ❌ No | Planning is just for organizing, not actual execution. |
-| **Checking off a Habit** | ❌ No | ❌ No | Personal routine tracking only. No XP given. |
-| **Focus Circle Activity** | 🟡 Isolated Only | ❌ No | Gives group-only XP; never changes your main rank. |
-| **Friends Shared Board** | ❌ No | ❌ No | Coordination only; keeps single-player progress honest. |
+### Native Bilingual Processing
+The prompt engineering forces the AI to respect the user's input language (Arabic or English) for visible UI elements, while keeping system enumerations (Quest Type, Difficulty, Priority) in strict English keys. This ensures the database logic never breaks regardless of the input language.
+
+### State-Scoped Caching & Context Isolation
+To prevent the Gemini API from hallucinating or mixing contexts across users, the AI requests are bundled with a sanitized version of the player's specific focus areas (e.g., Mechanical Engineering vs. Medicine). 
 
 ---
 
-## 🛡️ Security & Architecture
+## 🛡️ Database Design & Anti-Cheat Mechanics
 
-* **Client-Side Vault Encryption (AES-256-GCM):** Data is encrypted directly inside your browser before uploading to the server, so the backend only stores encrypted text.
-* **The Recovery File Mechanism:** Since data is client-encrypted, new devices require your `.txt` Recovery File to unlock your vault.
-* **Row-Level Security & Turnstile:** Strict database security rules combined with Cloudflare Turnstile bot protection to keep accounts secure.
+Gamified systems are notoriously easy to cheat. ASCEND solves "XP Farming" through strict database constraints and UI event blocking, which I heavily iterated on during the debugging phases.
+
+### 1. Idempotent XP Calculations (The `SUM()` Method)
+In the **Focus Circles** and **Friends** modules, XP is not pushed from the client. 
+* When a user marks a shared session as complete, a unique row is inserted keyed by `(item_id, user_id)`.
+* Circle Contribution XP is dynamically calculated server-side as a `SUM()` of the duration of valid rows. 
+* **Anti-Farm Guarantee:** If a user rapidly clicks "Complete" and "Undo", the system simply inserts and deletes the exact same row. They can never accumulate more than the base XP of that specific item.
+
+### 2. UI-Level System Locks
+When a quest is analyzed by the AI or manually added via Quick-Add, the engine calculates the reward (XP) based on 6 factors: Difficulty, Type, Priority, Estimated Time, Long-term Value, and Life Impact.
+* The instant the payload is processed, the DOM fields are locked (`disabled`). 
+* The user cannot manipulate the hidden fields to inflate the output XP before saving it to the database.
+
+### 3. Daily Recurrence Reconciliation
+Handling daily tasks without creating endless duplicate rows in the database was solved via a startup reconciliation script:
+* When the app initializes or regains tab focus, it checks the local date.
+* If a scheduled Daily Quest is past due, the system pulls it forward to the current date and increments a "missed-day" audit counter.
+* It strictly limits generation to **one active occurrence per day**, preventing backdated reward farming.
 
 ---
 
-<div align="center">
-<i><b>Project Status:</b><br>
-ASCEND is a personal, non-commercial Private Beta project built to stop laziness and gamify real-world engineering and studies.<br><br>
-<b>Built from scratch to turn daily effort into real digital growth.</b></i>
-</div>
+## 📚 Lessons Learned for AI-Driven Developers (Vibe Coders)
+
+If you are a developer or a fellow "Vibe Coder" exploring this code, here are the key technical takeaways from building a massive system exclusively via AI prompting:
+
+1. **Vanilla JS is King for AI:** AI models hallucinate less and write better, more predictable code when you strip away complex frameworks like React or Next.js. State management and DOM manipulation via modular ES6 imports (`app.js`, `state-scope.js`) kept the context window clean.
+2. **Security by Explicit Prompting:** AI will naturally write insecure, plaintext CRUD apps if you let it. You must explicitly instruct it to implement `window.crypto.subtle` and define strict Supabase RLS policies (e.g., `auth.uid() = user_id`) to build secure software.
+3. **Debugging Requires Architecture Context:** When an AI breaks your code, you cannot just paste the error. You must remind the AI of the system architecture (e.g., "Remember, we are using AES-GCM for the payload before uploading to Supabase") to get an accurate fix.
+4. **Cloudflare Turnstile is Essential:** To prevent abuse on Vercel Edge Functions, integrating bot protection required careful prompting to ensure the Turnstile token is validated server-side before execution.
+
+---
+
+## ⚙️ Local Development & Setup
+
+ASCEND supports full local deployment for testing the encrypted vault and offline PWA capabilities.
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/YOUR-USERNAME/ascend-system.git](https://github.com/YOUR-USERNAME/ascend-system.git)
+   cd ascend-system
