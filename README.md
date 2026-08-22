@@ -16,13 +16,15 @@
 
 ## 🎯 Why I Built This: The Story
 
-Tired of expensive task apps and personal procrastination, I wanted a tool built strictly around real execution. Since I was already using AI tools, I built **ASCEND** entirely through **AI-Driven Development (Vibe Coding)**. Acting as the architect and product manager, I guided the AI to build a secure PWA with client-side encryption and an RPG progression model scaling up to **S-Rank**.
+I built **ASCEND** because I was tired of procrastination and dealing with messy, unorganized task lists that just added mental weight. Most task apps out there either lack basic features unless you pay high monthly subscriptions, or don't fit how I actually want to grow. Since I was already using AI tools, I decided to build my own solution.
+
+The catch? **I don't write traditional code by hand.** I built this entire system completely through **AI-Driven Development (Vibe Coding)**. I acted as the systems architect and product manager, guiding the AI to write every line of code. What started as a simple AI task parser grew into a full, secure Progressive Web App (PWA) with client-side encryption, database security, and an RPG progression system scaled up to **S-Rank**.
 
 ---
 
 ## 📁 Project Structure & Architecture
 
-To keep the codebase clean and manageable through AI prompting, the project avoids heavy frameworks and uses modular Vanilla ES6 JavaScript paired with a serverless backend:
+To keep the codebase clean and easy to manage with AI prompting, the project skips heavy frameworks and uses modular Vanilla ES6 JavaScript with a serverless backend:
 
 `ASCEND/`
 *   `api/`                  # Serverless API routes (Vercel edge functions)
