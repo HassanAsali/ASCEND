@@ -8,17 +8,17 @@
 ![Tech Stack](https://img.shields.io/badge/Stack-Vanilla%20JS%20%7C%20Node.js%20%7C%20Supabase-success?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Security-AES--256--GCM%20%7C%20Supabase%20RLS-red?style=for-the-badge)
 
-[The Journey](#-the-vibe-coding-journey) • [Project Structure](#-project-structure--architecture) • [Comprehensive Module Breakdown](#-comprehensive-system-modules-page-by-page) • [System Integrity](#-system-integrity-what-grants-xp) • [Security Vault](#-security--cryptography-the-client-side-vault) • [Local Setup](#-local-development--setup)
+[Why I Built This](#-why-i-built-this-the-story) • [Project Structure](#-project-structure--architecture) • [Comprehensive Module Breakdown](#-comprehensive-system-modules-page-by-page) • [System Integrity](#-system-integrity-what-grants-xp) • [Security Vault](#-security--cryptography-the-client-side-vault) • [Local Setup](#-local-development--setup)
 
 </div>
 
 ---
 
-## 🚀 The Vibe Coding Journey
+## 🎯 Why I Built This: The Story
 
-I don't write traditional code by hand. I built **ASCEND** entirely through **AI-Driven Development (Vibe Coding)**, acting as the systems architect and product manager while guiding AI to write the code. 
+Like many people, I struggled with procrastination and the mental weight of messy, unorganized tasks. Traditional productivity apps on the market either lacked key features unless you paid steep monthly subscriptions, or felt completely disconnected from real personal growth. Since I was already using AI tools, I asked myself: *Why not build my own solution?*
 
-Starting from a personal struggle with procrastination and the limits of expensive, rigid productivity apps, I wanted a custom ecosystem. What began as a simple task parser evolved into a massive, highly secure Progressive Web App (PWA) featuring client-side encryption, database security policies, and an advanced RPG progression model scaled up to **S-Rank (S1 through S5)**.
+That is how **ASCEND** was born. I don't write traditional code by hand; instead, I built this entire ecosystem through **AI-Driven Development (Vibe Coding)**. Acting as the systems architect and product manager, I guided the AI to write every line of code. What started as a simple task parser evolved into a secure Progressive Web App (PWA) featuring client-side encryption, strict database security, and an advanced RPG progression model scaled up to **S-Rank (S1 through S5)**.
 
 ---
 
