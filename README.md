@@ -1,360 +1,530 @@
 <div align="center">
 
-# ASCEND
+# 🌌 ASCEND // Personal Progression OS
 
-### Build your system. Earn your progression.
+### **Your work. Your system. Your progression.**
 
-A privacy-first personal progression system that turns real work into quests, projects, skills, ranks, and long-term progress.
+*A privacy-first personal progression system built to turn real execution into visible, long-term growth.*
 
 ![Version](https://img.shields.io/badge/Version-v0.6.0.11.3%20Beta-blue?style=for-the-badge)
 ![Development](https://img.shields.io/badge/Development-AI--Driven-purple?style=for-the-badge)
 ![Stack](https://img.shields.io/badge/Stack-Vanilla%20JS%20%7C%20Node.js%20%7C%20Supabase-success?style=for-the-badge)
-![Security](https://img.shields.io/badge/Data-AES--GCM%20Encrypted-red?style=for-the-badge)
+![Security](https://img.shields.io/badge/Security-AES--GCM%20%7C%20RLS-red?style=for-the-badge)
 
-**Private Beta**
+**CURRENT STATUS: PRIVATE BETA**
 
-[The Idea](#the-idea) •
-[How It Evolved](#how-it-evolved) •
-[How ASCEND Works](#how-ascend-works) •
-[Progression](#progression-that-has-to-be-earned) •
-[Privacy](#privacy-by-design) •
-[Architecture](#architecture) •
-[Development](#built-through-ai-driven-development)
+[🌌 Origin](#-the-origin--why-ascend-exists) •
+[🧬 Evolution](#-the-evolution--how-ascend-grew) •
+[🧠 System](#-inside-ascend--how-the-system-works) •
+[🏆 Progression](#-progression--every-rank-must-be-earned) •
+[🔐 Privacy](#-the-vault--privacy-by-design) •
+[🏗️ Architecture](#️-under-the-system--architecture) •
+[🤖 AI Development](#-built-with-ai--directed-by-human-decisions)
 
 </div>
 
 ---
 
-# The Idea
+# 🌌 The Origin // Why ASCEND Exists
 
-ASCEND did not start as a plan to build a large productivity platform.
+ASCEND did not start because I wanted to build a huge productivity platform.
 
-It started because I was dissatisfied with the way I was managing my own work.
+It started because I was tired of the way I was managing my own work.
 
-I had tasks spread across lists, notes, ideas, university work, projects, and things I kept postponing. Normal task managers could tell me what I had left to do, but that was basically where they stopped.
+Tasks were spread across notes, lists, university work, personal projects, ideas, and things I kept telling myself I would do later.
 
-I wanted something different.
+Normal task managers could store all of that.
 
-I wanted a system where finishing something actually **meant something**.
+But storing tasks was never really the problem.
 
-Something that could answer:
+**Doing them was.**
+
+I wanted something that did more than show me another checklist.
+
+I wanted a system that could answer:
 
 * What am I actually progressing toward?
 * Which projects am I moving forward?
-* Am I becoming more consistent?
+* How consistent have I actually been?
 * What kind of work am I spending my time on?
-* How much have I actually accomplished over weeks or months?
-* What skills am I building through the things I finish?
+* What skills am I developing?
+* How much have I really accomplished over weeks, months, and eventually years?
 
-The original idea was simple:
+And most importantly:
 
-> **What if a task manager worked more like a progression system?**
+> **What if completing real work actually felt like progression?**
 
-Complete real work.
+That became the core idea.
 
-Earn XP.
+Do the work.
+
+Complete the Quest.
+
+Earn the progression.
+
+Level up.
 
 Build skills.
 
-Advance through levels and ranks.
+Advance through Ranks.
 
-See your progress accumulate over time.
+And actually be able to look back and see how far I had moved.
 
 That idea became **ASCEND**.
 
 ---
 
-# It Started Much Smaller Than This
+# ⚡ From One Idea to an Entire System
 
-The first versions were nowhere near the current system.
+The first version was nowhere near what ASCEND is today.
 
-ASCEND originally revolved around one core loop:
+There was no encrypted cloud vault.
 
-**Write a task → analyze it → turn it into a Quest → complete it → earn progression.**
+No Projects system.
 
-AI was used to understand natural-language input and estimate things such as the type, difficulty, importance, and structure of a task.
+No Planner.
+
+No Habits.
+
+No Friends.
+
+No Focus Circles.
+
+No PWA.
+
+No complicated progression rules.
+
+The original loop was basically:
+
+```text
+Write a task
+      ↓
+Analyze it
+      ↓
+Create a Quest
+      ↓
+Complete it
+      ↓
+Earn XP
+```
+
+That was the project.
 
 Then I started actually using it.
 
-That changed everything.
+And that is when ASCEND began to grow.
 
-The more I used ASCEND for my own work, the more problems became obvious.
+Not because I had a giant roadmap prepared from day one.
+
+It grew because **every version exposed another problem**.
 
 Some tasks were too large to be treated as one Quest.
 
-Daily responsibilities behaved differently from long-term projects.
+Some things needed to be organized without becoming XP.
 
-Habits should not reward XP the same way actual completed work does.
+Daily responsibilities behaved differently from normal tasks.
 
-Planning something should not count as accomplishing it.
+Habits needed consistency tracking, not progression rewards.
 
-Repeated clicks should never be able to generate progression.
+Projects needed hierarchy.
 
-A leaderboard could easily destroy the meaning of personal progression if social activity affected Rank.
+AI sometimes misunderstood input.
 
-Syncing data across devices created an entirely different set of privacy and reliability problems.
+Completion actions needed protection against duplicate XP.
 
-And once other people could potentially use the system, "it works on my computer" stopped being good enough.
+Mobile introduced completely different UI problems.
 
-So ASCEND kept changing.
+Cloud synchronization introduced state conflicts.
 
-Not because I had a giant feature list from the beginning, but because every version exposed the next problem that needed to be solved.
+Accounts introduced isolation requirements.
+
+Encryption introduced recovery problems.
+
+Friends and group sessions introduced an even bigger question:
+
+**How do you add social features without destroying the meaning of personal progression?**
+
+Every one of those problems changed ASCEND.
+
+The system was not designed once.
+
+**It evolved through use.**
 
 ---
 
-# How It Evolved
+# 🧬 The Evolution // How ASCEND Grew
 
-ASCEND gradually moved from a local personal prototype into a much larger system.
+ASCEND's earliest versions revolved around:
 
-The early versions focused mainly on:
+> **Quests → XP → Levels → Ranks**
 
-**Quests → XP → Levels → Ranks**
+Then the system started expanding.
 
-Then came better task analysis, editing, review flows, milestones, and progression rules.
+Quest analysis became smarter.
 
-Projects introduced another layer:
+Editing and review flows were added.
 
-**Project → Workstreams → Quests → Subquests**
+XP calculations became stricter.
 
-That allowed large outcomes to be broken into actual executable work instead of becoming one giant checkbox.
+Milestones appeared.
 
-Then ASCEND expanded beyond tasks.
+Daily Quests received their own rules.
 
-The Planner was created for information that needs organization but should not generate XP.
+Then came a major realization:
 
-Habits became their own system because repetition and consistency are useful to track, but checking off a routine should not inflate progression.
+> **A project is not a giant task.**
 
-Daily Quests gained date-aware behavior.
+That led to Projects, Workstreams, Quests, and Subquests.
 
-Skills became a way to represent the capabilities being developed through completed work.
+Then another:
 
-The Guide became a long-term progression map.
+> **Organizing work is not the same as doing work.**
 
-Eventually the project moved beyond a local browser application.
+That led to the Planner.
 
-Accounts were introduced.
+Then:
 
-Then cloud synchronization.
+> **Repeating a routine is not the same as completing a finite objective.**
 
-Then encryption.
+That led to Habits.
 
-Then multi-device behavior.
+Skills were added to show what kind of capabilities were being developed through completed work.
+
+The Guide was created to visualize longer-term progression.
+
+Then ASCEND moved beyond being a local application.
+
+Accounts arrived.
+
+Cloud synchronization followed.
+
+Then client-side encryption.
+
+Then recovery.
+
+Then cross-device behavior.
 
 Then PWA support.
 
-Then external task requests.
+Then external requests.
 
-Then private Friends and Focus Circles.
+Then Friends.
 
-At that point, ASCEND was no longer just the task manager I originally intended to make.
+Then Focus Circles.
 
-It had become my attempt at building a complete **personal progression system**.
+Each system created new edge cases.
 
----
+Each edge case forced another decision.
 
-# The Rule Behind the Entire System
+Eventually ASCEND stopped feeling like the task manager I originally wanted to build.
 
-There is one rule I kept coming back to while building ASCEND:
+It had become something much larger:
 
-> **Progression must come from execution, not organization.**
-
-That distinction sounds small, but it affects almost every part of the system.
-
-Creating twenty tasks does not mean you accomplished twenty things.
-
-Writing a detailed plan does not mean the project moved forward.
-
-Checking the same action twice should not generate twice the reward.
-
-Joining a Focus Circle should not make your personal Rank easier to achieve.
-
-Maintaining a habit is valuable, but it is different from completing a finite piece of work.
-
-ASCEND therefore deliberately separates **planning**, **routine**, **collaboration**, and **progression**.
-
-| Action                         |     Personal XP    | Rank Progress |
-| ------------------------------ | :----------------: | :-----------: |
-| Complete a Quest               |         Yes        |      Yes      |
-| Complete eligible project work |         Yes        |      Yes      |
-| Add something to the Planner   |         No         |       No      |
-| Complete a Habit               |         No         |       No      |
-| Coordinate through Friends     |         No         |       No      |
-| Focus Circle contribution      | Separate Circle XP |       No      |
-
-The goal is simple:
-
-**If the number goes up, something should have actually happened.**
+> **A personal operating system for progression.**
 
 ---
 
-# How ASCEND Works
+# ⚖️ The Core Law // Progress Must Be Earned
 
-## Command Center
+There is one rule behind almost every major design decision in ASCEND:
 
-The Command Center is the main entry point into the system.
+> ## **Progression must come from execution.**
 
-Instead of opening ASCEND and immediately seeing another giant list, it provides a snapshot of the current state:
+Not planning.
 
-* Level and Rank
-* XP progression
-* current identity/specialization
+Not organizing.
+
+Not clicking buttons.
+
+Not social activity.
+
+**Execution.**
+
+Creating twenty Quests does not mean twenty things were accomplished.
+
+Building the perfect semester plan does not mean the semester was completed.
+
+Checking the same Quest twice should never create two rewards.
+
+A Friend sending a task should not increase your Rank.
+
+A group Focus Session should not provide an alternative path to farming personal XP.
+
+ASCEND deliberately separates different kinds of activity.
+
+| Action                            |   Personal XP  | Rank Progress |
+| --------------------------------- | :------------: | :-----------: |
+| ⚔️ Complete a Quest               |        ✅       |       ✅       |
+| 🧩 Complete eligible project work |        ✅       |       ✅       |
+| 📅 Add or organize Planner items  |        ❌       |       ❌       |
+| 🔁 Complete a Habit               |        ❌       |       ❌       |
+| 🤝 Friends coordination           |        ❌       |       ❌       |
+| 🔥 Focus Circle contribution      | Circle XP only |       ❌       |
+
+The rule is simple:
+
+> **If your progression goes up, something should have actually happened.**
+
+---
+
+# 🧠 Inside ASCEND // How the System Works
+
+ASCEND is built from multiple systems, but they all serve different parts of the same loop:
+
+```text
+CAPTURE
+   ↓
+UNDERSTAND
+   ↓
+PLAN
+   ↓
+EXECUTE
+   ↓
+COMPLETE
+   ↓
+PROGRESS
+   ↓
+REVIEW
+   ↓
+ASCEND
+```
+
+The goal is not to make productivity more complicated.
+
+The goal is to give different kinds of work the structure they actually need.
+
+---
+
+## 🎛️ Command Center // Your Main Interface
+
+The **Command Center** is the main cockpit of ASCEND.
+
+Instead of opening the app and immediately facing an endless task list, it provides a snapshot of the current state.
+
+It brings together:
+
+* current Level
+* current Rank
+* lifetime XP
+* active identity / specialization
 * today's main directive
+* current progression
 * skill development
 * incoming requests
-* AI-assisted Quest creation
+* Quest creation
 
-It is designed to answer one question quickly:
+The purpose is simple.
+
+When I open ASCEND, I should not need five minutes to figure out what matters.
+
+I should be able to answer:
 
 > **What should I be doing next?**
 
+![Command Center Preview](command-center.png)
+
 ---
 
-## AI Quest Intake
+## ✨ AI Quest Engine // From Thought to Action
 
-Tasks do not need to be entered through a rigid form.
+Tasks rarely enter your head as perfectly structured database entries.
 
-ASCEND accepts natural-language input in Arabic or English and uses Gemini to interpret the task.
+Sometimes it is:
 
-The system can help determine:
+> "I need to finish the electronics project before Thursday."
 
-* Quest structure
+Or:
+
+> "بكرة لازم أخلص المحاضرة وأراجع الجزئية الأخيرة."
+
+ASCEND accepts natural-language input in **Arabic or English** and uses Gemini to help turn it into structured work.
+
+The engine can help determine:
+
+* Quest type
 * category
-* estimated duration
 * priority
+* estimated duration
 * difficulty
-* appropriate decomposition
+* structure
 * potential Subquests
 
-Voice input can also be used when writing the task is slower than simply saying it.
+Voice input can also be used when saying something is faster than typing it.
 
-The AI is not the progression system itself.
+AI is not allowed to become the progression system itself.
 
-It helps translate messy human input into structured data that ASCEND can use.
+Its job is to help transform messy human input into structured information.
+
+**ASCEND still owns the rules.**
 
 ---
 
-# Quest Board
+# ⚔️ Quest Board // Where Execution Happens
 
-The Quest Board is where executable work lives.
+This is where work stops being an idea.
 
-Quests can be organized into different operational types instead of being thrown into one endless list.
+And becomes something that needs to get done.
 
-The system handles:
+The Quest Board handles executable work across different operational types:
 
-* Main Quests
-* Side Quests
-* Daily Quests
-* project-related work
-* larger challenge tiers
-* Subquests
-* dates and deadlines
+* ⚔️ Main Quests
+* 🧭 Side Quests
+* ☀️ Daily Quests
+* 🗺️ Project Quests
+* 💀 larger challenge tiers
+* 🧩 Subquests
+
+Quests can carry information such as:
+
+* deadlines
+* estimated time
+* priority
+* difficulty
+* category
 * completion state
-* XP calculation
+* progression reward
 
-Reward-related fields are controlled by the system so progression cannot simply be inflated manually.
+Reward-related values are controlled by the system rather than being freely editable.
 
-ASCEND also includes safeguards for accidental completion and duplicate reward events.
+Why?
 
-Because if XP can be farmed by clicking buttons, the entire progression system becomes meaningless.
+Because if I can simply type:
+
+> `+5000 XP`
+
+then XP means nothing.
+
+ASCEND also protects completion logic against accidental actions and duplicate reward events.
+
+The progression system only works if it can be trusted.
 
 ---
 
-# Projects
+# 🗺️ Projects // Turn Ambition Into Execution
 
-One of the biggest changes to ASCEND was realizing that:
+One of the most important lessons from building ASCEND was realizing that large outcomes should never be treated like normal tasks.
 
-> **A project is not a task.**
+Things like:
 
-"Build an application."
+> Build an application.
 
-"Finish a university project."
+> Finish a university project.
 
-"Design and manufacture a robot."
+> Design a robot.
 
-These are outcomes, not checkboxes.
+> Build a portfolio.
 
-The Projects system therefore treats large objectives hierarchically.
+These are not Quests.
+
+They are **Projects**.
+
+ASCEND breaks them into a hierarchy:
 
 ```text
-Project
+PROJECT
 │
-├── Workstream
-│   ├── Quest
-│   │   ├── Subquest
-│   │   └── Subquest
+├── WORKSTREAM
 │   │
-│   └── Quest
+│   ├── QUEST
+│   │   ├── SUBQUEST
+│   │   └── SUBQUEST
+│   │
+│   └── QUEST
 │
-└── Workstream
-    └── Quest
+└── WORKSTREAM
+    │
+    └── QUEST
 ```
 
-ASCEND also includes an **AI Project Architect** that can take a large outcome and propose a structured breakdown.
+The goal is to convert:
 
-The generated structure is not treated as unquestionable truth.
+> **"I want to build this."**
 
-It is a starting point that can be reviewed and adjusted before execution.
+into:
+
+> **"This is the next concrete action."**
+
+ASCEND also includes an **AI Project Architect** that can take a large outcome and propose an initial Work Breakdown Structure.
+
+The generated plan is not treated as unquestionable.
+
+It is reviewed first.
+
+AI proposes the structure.
+
+**The user decides what becomes real.**
+
+![Project Map Preview](project-map.png)
 
 ---
 
-# Planner
+# 📅 Planner // Organize Without Fake Progress
 
-Not everything belongs in the XP system.
+Some information needs structure.
 
-ASCEND's Planner exists specifically for things that need structure without pretending they are accomplishments.
+It does not need XP.
 
-It supports areas such as:
+That is exactly why the Planner exists.
 
-* semester planning
+ASCEND can organize:
+
+* semesters
 * courses
 * structured lists
-* preparation lists
+* preparation checklists
 * schedules
 * commitments
 * weekly timetables
 
-The timetable provides a seven-day view and can identify overlapping commitments.
+The timetable provides a seven-day view for lectures, study periods, work blocks, and other commitments.
 
-And most importantly:
+It can also highlight overlapping commitments.
 
-**Planning does not grant XP.**
+But none of this grants progression.
 
-That is intentional.
-
----
-
-# Habits
-
-Habits are another intentionally separate system.
-
-They track repeated behaviors such as:
-
-* reading
-* exercise
-* routines
-* recurring personal commitments
-
-Habits can use frequencies, streaks, reminder windows, and recent activity views.
-
-But Habit completion does not increase personal XP.
-
-A habit is about **consistency**.
-
-A Quest is about **finishing a defined piece of work**.
-
-ASCEND keeps those concepts separate.
+> **Planning helps execution. Planning is not execution.**
 
 ---
 
-# Skills
+# 🔁 Habits // Consistency Without XP Farming
 
-XP tells me how much work has been completed.
+Habits solve a different problem.
 
-Skills try to answer a different question:
+A Quest is something you finish.
 
-> **What am I getting better at while doing it?**
+A Habit is something you keep doing.
 
-ASCEND tracks broader transferable attributes such as:
+ASCEND therefore tracks Habits independently through things such as:
+
+* custom frequencies
+* streaks
+* reminder windows
+* recent activity
+* seven-day views
+
+Examples might include reading, training, hydration, or recurring routines.
+
+Completing a Habit does **not** grant personal XP.
+
+That decision is intentional.
+
+Otherwise the easiest way to become S-Rank would eventually be creating fifty tiny daily habits.
+
+That would defeat the entire point.
+
+---
+
+# 🧠 Skills // See What You're Actually Building
+
+XP answers:
+
+> **How much work have I completed?**
+
+Skills try to answer:
+
+> **What am I developing by doing that work?**
+
+ASCEND tracks broader transferable capabilities such as:
 
 * Execution
 * Problem Solving
@@ -363,197 +533,277 @@ ASCEND tracks broader transferable attributes such as:
 * Decision Making
 * Consistency
 
-The intention is not to pretend that a number can perfectly measure human ability.
+This is not intended to scientifically quantify human ability.
 
-The Skills system is there to create a long-term picture of the types of work being practiced repeatedly.
+A number cannot perfectly measure whether someone is "good at problem solving."
 
----
-
-# Progression That Has to Be Earned
-
-ASCEND uses:
-
-**XP → Levels → Milestones → Ranks**
-
-But Rank is deliberately harder to increase than Level.
-
-Higher progression is not based purely on accumulating XP quickly.
-
-Long-term Rank advancement can require multiple conditions, including sustained activity and time.
-
-This prevents someone from completing a huge number of tiny tasks in a short period and immediately reaching the highest tiers.
-
-The upper progression path is intentionally long.
-
-**S-Rank is supposed to represent long-term progression, not a productive weekend.**
+Instead, the Skills system creates a long-term representation of the kinds of capabilities being repeatedly practiced through real work.
 
 ---
 
-# The Guide
+# 🏆 Progression // Every Rank Must Be Earned
 
-The Guide turns long-term development into a visual progression tree.
+ASCEND's progression follows several layers:
 
-Different branches can represent areas such as:
+```text
+XP
+ ↓
+LEVELS
+ ↓
+MILESTONES
+ ↓
+RANKS
+```
 
-* System Foundation
-* University
-* Career
-* Engineering
-* long-term personal development
+But these layers are intentionally not identical.
 
-Milestones progress from smaller achievements toward much larger ones.
+**Level** represents accumulated progression.
 
-The idea is to provide direction without turning every future ambition into something that needs to sit on today's task list.
+**Rank** represents something harder.
 
----
+Higher Ranks can require multiple conditions instead of simply hitting an XP number.
 
-# Daily Quests
+That means progression can consider things such as sustained activity, completed work, milestones, and time.
 
-Daily Quests required their own behavior because real life does not reset perfectly at midnight.
+The system is designed so someone cannot create hundreds of tiny Quests, grind them for a weekend, and immediately reach the top.
 
-ASCEND tracks Daily Quests against the local date while preserving valid checklist progress.
+The highest tiers are supposed to take time.
 
-It also includes safeguards such as **Undo Today** so accidental completion can be reversed correctly instead of permanently corrupting progression data.
-
-Small details like this became a major part of ASCEND's development.
-
-A lot of the work on the project has not been adding impressive-looking features.
-
-It has been fixing the weird edge cases that appear when the system is actually used every day.
+> **S-Rank should represent a history of execution — not one productive weekend.**
 
 ---
 
-# Friends
+# 🌳 The Guide // Your Long-Term Progression Tree
 
-ASCEND includes a private Friends system, but it intentionally avoids turning personal productivity into a public social network.
+Not every goal belongs on today's Quest Board.
 
-Connections are made through private codes rather than public discovery.
+The **Guide** exists for the longer journey.
 
-Friends can coordinate work through shared functionality, but that activity does not modify personal Rank or progression.
+It presents progression as a visual tree with branches such as:
 
-The social layer is there to help people work together.
+* ⚙️ System Foundation
+* 🎓 University Route
+* 💼 Career Route
+* 🔧 Engineering Route
+* 🌱 long-term development
 
-It is not there to provide another way to farm XP.
+Milestones move from smaller achievements toward much larger ones.
 
----
-
-# Focus Circles
-
-Focus Circles are private groups for shared study or work sessions.
-
-They use their own **Circle Contribution XP**.
-
-That XP is isolated from the main account progression system.
-
-Contribution is calculated separately and can be limited to prevent obvious farming.
-
-This keeps group competition useful without compromising the integrity of someone's personal ASCEND progression.
+The Guide gives long-term direction without dumping your entire future into today's task list.
 
 ---
 
-# External Requests
+# ☀️ Daily Quests // Win the Day
 
-ASCEND can generate a private request link that can be shared with someone outside the system.
+Daily work needed its own rules.
 
-That person can propose a task or meeting without needing access to the user's account or data.
+Real life does not perfectly reset at midnight.
 
-The request arrives inside ASCEND for review.
+ASCEND therefore handles Daily Quests using date-aware behavior while preserving valid progress.
 
-This feature came from a simple idea:
+Daily systems include safeguards such as **Undo Today**, allowing an accidental completion to be mathematically reversed instead of leaving incorrect progression behind.
 
-**If someone needs something from me, I want it to enter the same system where I manage everything else.**
+This is the kind of feature that sounds tiny on paper.
+
+Until you actually use the application every day.
+
+A large part of ASCEND's development has been exactly this:
+
+> **finding the small things that break when a system meets real life.**
 
 ---
 
-# Progress Intelligence
+# 🤝 Friends // Coordinate Without Breaking Progression
 
-ASCEND does not only show a lifetime XP number.
+ASCEND has social features.
 
-The Progress system provides a clearer view of actual activity through information such as:
+But it is not trying to become a social network.
+
+Friends connect using private codes rather than public discovery.
+
+The purpose is coordination.
+
+Friends can work around shared tasks and other collaborative functionality without changing the integrity of personal progression.
+
+Friend activity does not promote Rank.
+
+It does not unlock personal milestones.
+
+It does not provide another XP farming route.
+
+> **Collaboration should help you execute — not fake your progression.**
+
+---
+
+# 🔥 Focus Circles // Progress Together
+
+Focus Circles are private spaces for shared work and study sessions.
+
+But there was an immediate problem when designing them:
+
+If group activity grants normal XP, social features become a shortcut through the progression system.
+
+So Focus Circles use a separate metric:
+
+### **Circle Contribution XP**
+
+Circle XP is isolated from personal progression.
+
+It can be calculated from actual contribution and restricted through limits designed to reduce farming.
+
+It exists for group metrics and friendly competition.
+
+It cannot:
+
+* promote personal Rank
+* unlock personal milestones
+* modify personal progression
+
+**Your Rank remains yours.**
+
+![Focus Circles Preview](focus-circles.png)
+
+---
+
+# 📡 Request Portal // Let Work Come to You
+
+Not every task starts with you.
+
+Sometimes someone else needs something from you.
+
+ASCEND can generate a private request link that can be shared externally.
+
+Someone without access to your account can use it to propose a task or meeting.
+
+The request then enters ASCEND for review.
+
+They do not need access to your Quest Board.
+
+They do not need access to your account.
+
+They do not need access to your data.
+
+The idea came from a simple problem:
+
+> **If something requires my attention, I want it to enter the same system where I manage everything else.**
+
+---
+
+# 📊 Progress Intelligence // Make Progress Visible
+
+One of the reasons I built ASCEND in the first place was that normal productivity tools made completed work disappear too quickly.
+
+You finish something.
+
+Check the box.
+
+And eventually forget how much you actually did.
+
+ASCEND keeps progression visible through information such as:
 
 * recent XP activity
-* completed work
+* completed Quest counts
 * active days
 * progression history
 * advancement requirements
 * Rank eligibility
 
-The purpose is not to produce as many graphs as possible.
+The goal is not to fill the application with graphs.
 
-It is to make progress visible enough that weeks of work do not disappear into memory.
+It is to make one thing difficult to forget:
+
+> **You have moved forward.**
+
+![Progress Intelligence Preview](progress-intelligence.png)
 
 ---
 
-# Privacy by Design
+# 🔐 The Vault // Privacy by Design
 
-The biggest architectural change happened when ASCEND went from:
+One of the biggest architectural changes happened when ASCEND moved from:
 
-> "a personal app on my computer"
+> **"my local personal app"**
 
 to:
 
-> "something another person could actually use."
+> **"something another person could actually use."**
 
-Once accounts and cloud synchronization existed, I did not want the database owner to automatically have readable access to everybody's private tasks.
+That changed the security requirements completely.
 
-So ASCEND uses a client-side encrypted vault.
+If another person trusts ASCEND with their tasks, projects, plans, and personal goals, I do not want that information sitting in a database where I can casually read it just because I own the project.
 
-User state is encrypted in the browser using **AES-GCM** before encrypted data is synchronized to the backend.
+So ASCEND moved toward a **client-side encrypted vault**.
 
-Supabase stores the encrypted state rather than the normal readable application state.
+Application state is encrypted in the browser using **AES-GCM** before encrypted data is synchronized to the cloud.
 
-This also created a difficult consequence:
+The backend stores ciphertext rather than the normal readable application state.
 
-If the server does not hold the key, the server cannot magically recover it.
+This creates an important consequence:
 
-ASCEND therefore uses a recovery mechanism for accessing an encrypted vault from another device.
+> **If the server does not hold your vault key, the server cannot simply recreate it for you.**
 
-Security is also reinforced through:
+ASCEND therefore includes a Recovery File mechanism for unlocking encrypted data on another device.
 
-* Supabase Authentication
-* Row Level Security
-* per-user ownership policies
-* account isolation
-* guest namespace isolation
-* Cloudflare Turnstile
-* protected external-request flows
-* encrypted cloud synchronization
+The security model also includes:
 
-This architecture has required significantly more work than simply storing JSON in a database.
+* 🔐 client-side AES-GCM encryption
+* 🛡️ Supabase Row Level Security
+* 👤 per-user ownership policies
+* 🧱 account isolation
+* 🕶️ guest namespace isolation
+* 🤖 Cloudflare Turnstile
+* 📡 protected external-request flows
+* ☁️ encrypted cloud synchronization
 
-But privacy was one area where I did not want convenience to be the only design decision.
+This architecture is considerably more complicated than storing normal JSON in a database.
 
-> **Important:** ASCEND is currently a Private Beta and has not undergone an independent professional security audit.
+That complexity was accepted deliberately.
+
+Privacy was one area where I did not want convenience to make every decision.
+
+> ⚠️ **ASCEND is currently a Private Beta and has not undergone an independent professional security audit.**
 
 ---
 
-# Cross-Device & PWA
+# 📱 ASCEND Everywhere // Desktop to Pocket
 
-ASCEND is built as a Progressive Web App.
+ASCEND is built as a **Progressive Web App (PWA)**.
 
-The goal is for the same system to work across desktop, tablet, and mobile instead of creating separate versions of the product.
+The goal is one system across:
 
-That introduced its own set of problems:
+* 🖥️ Desktop
+* 💻 Laptop
+* 📱 Mobile
+* 📲 Tablet
+
+instead of maintaining completely separate applications.
+
+Making that actually work introduced another class of problems:
 
 * authentication persistence
 * encrypted synchronization
 * stale PWA caches
-* mobile dialogs
+* mobile layouts
+* dialog behavior
 * iPhone safe areas
 * account switching
-* language preservation
-* offline/local fallback
+* language persistence
+* offline/local behavior
 * recovery on new devices
 
-Many of these are invisible when everything works.
+Most of these systems are invisible when they work correctly.
 
-They became some of the most important parts of making ASCEND feel like an actual application rather than a prototype.
+That is exactly the point.
+
+Moving ASCEND from a browser prototype to something I could actually install and use across devices was one of the stages where the project started feeling like a real application.
 
 ---
 
-# Architecture
+# 🏗️ Under the System // Architecture
 
 ASCEND intentionally avoids a heavy frontend framework.
+
+The application is built around modular Vanilla JavaScript with a Node.js/serverless backend.
 
 ```text
 ASCEND/
@@ -567,7 +817,7 @@ ASCEND/
 │   ├── habit-system.js
 │   ├── skill-system.js
 │   ├── state-scope.js
-│   └── PWA assets and application modules
+│   └── PWA assets & application modules
 │
 ├── supabase/
 │   ├── schemas
@@ -575,250 +825,374 @@ ASCEND/
 │   └── security / RLS audits
 │
 ├── tests/
-│   └── automated smoke and integrity tests
+│   └── automated smoke & integrity tests
 │
 ├── server.mjs
 ├── start-windows.bat
 └── start-mac-linux.sh
 ```
 
-### Core Stack
-
-**Frontend**
+### 🖥️ Frontend
 
 * HTML
 * CSS
-* Vanilla JavaScript / ES Modules
+* Vanilla JavaScript
+* ES Modules
 * Progressive Web App APIs
 
-**Backend**
+### ⚙️ Backend
 
 * Node.js
 * Serverless API routes
 * Vercel
 
-**Cloud**
+### ☁️ Cloud & Data
 
 * Supabase Authentication
 * PostgreSQL
 * Row Level Security
 
-**AI**
+### ✨ AI
 
 * Google Gemini
 
-**Security**
+### 🔐 Security
 
 * Browser-side AES-GCM encryption
 * Supabase RLS
 * Cloudflare Turnstile
 
-The architecture has changed repeatedly as ASCEND moved from local storage toward accounts, encrypted synchronization, and multi-device usage.
+The architecture has changed repeatedly as ASCEND moved from local state toward accounts, encrypted synchronization, multi-device support, and social systems.
 
 ---
 
-# Built Through AI-Driven Development
+# 🤖 Built With AI // Directed by Human Decisions
 
 ASCEND was built through **AI-driven development**.
 
 I do not want to hide that.
 
-I also do not think describing it as simply "AI made the app" accurately represents how the project was developed.
+But saying:
 
-I did not manually write the majority of ASCEND's source code in the traditional way.
+> **"AI built ASCEND."**
 
-Instead, my role throughout the project has been closer to:
+does not accurately describe how this project happened.
 
-**Product Designer + System Architect + Tester + Decision Maker**
+I did not manually write most of ASCEND's source code in the traditional way.
 
-I define what the system should do.
+AI has been the primary implementation tool.
 
-I design its rules.
+My role has been different.
 
-I decide how features should interact.
+### I design the system.
 
-I define progression behavior.
+I decide what ASCEND should do.
 
-I test generated implementations.
+I define how its systems interact.
+
+I decide what earns XP and what does not.
+
+I define progression rules.
+
+I decide how Projects should behave.
+
+I define privacy requirements.
+
+I determine what happens when systems conflict.
+
+I test implementations.
 
 I reproduce bugs.
 
 I reject approaches that do not work.
 
-I change requirements when actual usage exposes a bad idea.
+I change requirements when real usage proves that an idea was wrong.
 
-I inspect results.
+Then I use AI to implement, modify, debug, and iterate on those decisions.
 
-Then I use AI to implement, modify, debug, and iterate on the code.
+The development loop usually looks much closer to this:
+
+```text
+💡 IDEA
+   ↓
+🧠 DEFINE THE BEHAVIOR
+   ↓
+🤖 AI IMPLEMENTATION
+   ↓
+🧪 TEST
+   ↓
+💥 SOMETHING BREAKS
+   ↓
+🔍 UNDERSTAND WHY
+   ↓
+🛠️ CHANGE THE APPROACH
+   ↓
+🧪 TEST AGAIN
+   ↓
+🐛 FIND THE EDGE CASE
+   ↓
+🔧 FIX IT
+   ↓
+🔁 REPEAT
+```
 
 Sometimes a feature works immediately.
 
-Often it does not.
+A lot of the time, it does not.
 
-A surprising amount of ASCEND has been built through cycles like this:
+ASCEND has gone through many iterations because I actively use the system while developing it.
 
-```text
-Idea
- ↓
-Define behavior
- ↓
-AI implementation
- ↓
-Test it
- ↓
-Something breaks
- ↓
-Understand why
- ↓
-Change the approach
- ↓
-Test again
- ↓
-Find an edge case
- ↓
-Fix it
- ↓
-Repeat
-```
+That exposed problems that would have been difficult to predict from a feature list:
 
-ASCEND has gone through many versions because I use the system while developing it.
+* duplicate XP
+* broken review states
+* incorrect counters
+* AI duplicate generation
+* mobile onboarding problems
+* cloud reconciliation
+* authentication failures
+* PWA caching
+* Daily Quest rollover
+* Project hierarchy
+* account isolation
+* vault recovery
+* encryption flows
+* social progression boundaries
+* synchronization edge cases
 
-That means problems are discovered through actual use rather than only through planned test cases.
+Most of those problems were never part of the original plan.
 
-Duplicate XP.
-
-Broken review states.
-
-Incorrect counters.
-
-Mobile overlays.
-
-Cloud reconciliation.
-
-Authentication problems.
-
-PWA caching.
-
-Daily Quest rollover.
-
-Account isolation.
-
-Recovery behavior.
-
-AI duplicate generation.
-
-Project hierarchy.
-
-Encryption flows.
-
-Social progression boundaries.
-
-Most of these were not part of the original idea.
-
-They appeared because the project kept becoming more real.
+They appeared because ASCEND kept becoming more real.
 
 ---
 
-# Why Vanilla JavaScript?
+# ⚙️ Why Vanilla? // Keeping the System in Control
 
-ASCEND could have been rebuilt using a large frontend framework.
+ASCEND could have been rebuilt around a large frontend framework.
 
-I deliberately kept the application relatively close to the platform instead.
+So far, I have deliberately kept it relatively close to the platform.
 
-Part of the reason is practical.
+There is a practical reason for that.
 
-The project is developed heavily through AI-assisted iteration, and keeping the architecture understandable at the file and module level makes it easier to isolate behavior, inspect generated changes, and replace individual systems without introducing another large abstraction layer.
+ASCEND is developed through heavy AI-assisted iteration.
+
+Keeping systems modular and understandable at the file level makes it easier to:
+
+* isolate behavior
+* inspect changes
+* replace individual modules
+* understand what a generated change actually touched
+* debug without navigating another large abstraction layer
 
 That decision has tradeoffs.
 
-But ASCEND is also an experiment in how far a modular, AI-developed Vanilla JavaScript application can realistically be pushed.
+Vanilla JavaScript does not magically make architecture easy.
 
-So far, much further than I originally expected.
+As ASCEND grew, keeping boundaries between systems became increasingly important.
+
+But that challenge also became part of the experiment:
+
+> **How far can a modular, AI-developed Vanilla JavaScript application realistically be pushed?**
+
+Much further than I expected when I started.
 
 ---
 
-# What ASCEND Is Not
+# 🚫 What ASCEND Refuses to Become
 
-ASCEND is not intended to scientifically measure someone's intelligence, discipline, or value.
+ASCEND is not supposed to turn every part of life into XP.
 
-It is not supposed to turn every part of life into XP.
+It is not designed to scientifically measure intelligence, discipline, or someone's value.
 
-And it is not a replacement for actually doing the work.
+It is not supposed to reward planning just because the plan looks impressive.
+
+It is not supposed to make social competition more important than actual progress.
+
+And it is definitely not a replacement for doing the work.
 
 The RPG layer exists for one reason:
 
-**to make long-term progress visible and satisfying enough that I want to continue.**
+> **Make long-term progress visible and satisfying enough that I want to keep going.**
 
-The system only works if the numbers remain connected to reality.
+That is why some ASCEND systems intentionally reward you with absolutely nothing.
 
-That is why so many ASCEND features intentionally grant **nothing**.
+Sometimes the correct reward for organizing something...
 
-Sometimes the correct reward for organizing something is simply having it organized.
+**is simply having it organized.**
 
 ---
 
-# Current Status
+# 🚧 System Status // Private Beta
 
-**Version:** `v0.6.0.11.3`
+### Current Version
 
-**Stage:** `Private Beta`
+`v0.6.0.11.3`
 
-The current version is no longer just an early proof of concept.
+### Development Stage
 
-The core systems are operational, encrypted account synchronization is implemented, the application works as a PWA, and the project has expanded into Quests, Projects, Planner, Habits, Skills, progression, Friends, Focus Circles, and external requests.
+`PRIVATE BETA`
+
+ASCEND has moved well beyond its original proof of concept.
+
+The current system includes:
+
+* ⚔️ Quest management
+* ✨ AI Quest analysis
+* 🗺️ Projects & Workstreams
+* 📅 Planner & semester tools
+* 🔁 Habits
+* 🧠 Skills
+* 🏆 Levels, Milestones & Ranks
+* 🌳 Progression Guide
+* 📊 Progress Intelligence
+* 🤝 Friends
+* 🔥 Focus Circles
+* 📡 External Requests
+* 🔐 encrypted cloud synchronization
+* 👤 multi-account support
+* 📱 PWA installation
+* ☁️ cross-device state
 
 But I still consider ASCEND a beta.
 
-There are areas that need more real-user testing, more edge-case testing, and deeper security review before I would consider the system mature.
+There are systems that need more real-user testing.
 
-The next stage is less about adding another giant list of features and more about:
+There are edge cases that will only appear with more usage.
 
-**testing → feedback → hardening → refinement**
+And the security architecture deserves deeper review before I would ever describe it as finished.
+
+The next stage is not:
+
+> **Add everything.**
+
+It is:
+
+```text
+TEST
+  ↓
+FEEDBACK
+  ↓
+FIX
+  ↓
+HARDEN
+  ↓
+REFINE
+  ↓
+REPEAT
+```
 
 ---
 
-# What I Learned Building It
+# 🧩 What Building ASCEND Taught Me
 
-ASCEND started because I wanted a better task system.
+ASCEND started because I wanted a better way to manage my tasks.
 
-It ended up teaching me much more than that.
+It ended up forcing me to learn about much more than task management.
 
-Building it forced me to think about:
+Building it pushed me into:
 
 * product design
 * system architecture
+* UX decisions
 * application state
-* UX
-* security
 * authentication
 * databases
+* Row Level Security
 * encryption
 * synchronization
-* PWA behavior
+* Progressive Web Apps
 * AI integration
 * progression design
 * abuse prevention
 * testing
+* debugging
 * edge cases
 * feature scope
 
-Most importantly, it changed the way I think about building software with AI.
+But the biggest lesson came from the way the project itself was built.
 
-Generating code is the easy part.
+AI can generate code extremely quickly.
 
-Building a system where hundreds of small decisions still make sense together is the difficult part.
+That does not automatically generate a good system.
+
+The difficult part is deciding:
+
+**What should happen?**
+
+**What should never happen?**
+
+**Which systems should interact?**
+
+**Which systems must remain separate?**
+
+**What happens when something fails?**
+
+**Can the progression be trusted?**
+
+**Can the data be trusted?**
+
+**Does this feature actually solve the problem?**
+
+And after hundreds of those decisions, does the entire thing still make sense as one product?
+
+That became the real challenge behind ASCEND.
+
+---
+
+# 🚀 From a Task Parser to ASCEND
+
+The project started with:
+
+```text
+"Can AI turn my task into a Quest?"
+```
+
+Then it became:
+
+```text
+"Can I build a progression system around the work I actually do?"
+```
+
+Then:
+
+```text
+"Can Projects, Habits, Planning, Skills and progression
+exist together without corrupting what XP means?"
+```
+
+Then:
+
+```text
+"Can another person use it without me having access
+to their readable private data?"
+```
+
+Then:
+
+```text
+"Can this become something I actually use
+across my devices every day?"
+```
+
+That sequence of questions built ASCEND.
+
+And the system is still evolving.
 
 ---
 
 <div align="center">
 
-## ASCEND
+# 🌌 ASCEND
 
-**Build your system. Earn your progression.**
+### **Your work. Your system. Your progression.**
 
-From a personal task parser
-to a private progression system built around real execution.
+**Plan what matters. Execute the work. Earn the progress.**
 
-`v0.6.0.11.3 — Private Beta`
+`v0.6.0.11.3 // PRIVATE BETA`
+
+---
+
+*Built through AI-driven development.*
+*Designed through iteration, testing, and real use.*
 
 </div>
