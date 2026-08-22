@@ -35,7 +35,7 @@ ASCEND grew by solving those problems one by one.
 
 ---
 
-# ⚖️ The Core Law // Progress Must Be Earned
+# ⚖️ The Core Law 
 
 ASCEND separates **organizing** from **executing**.
 
@@ -62,7 +62,7 @@ The goal is to open ASCEND and quickly know **what matters next**.
 
 ---
 
-# ✨ AI Quest Engine // Thought → Quest
+# ✨ AI Quest Engine 
 
 ASCEND accepts natural-language input in Arabic or English, including voice input. Gemini helps turn that input into structured Quests by estimating things such as category, priority, difficulty, duration, and possible Subquests.
 
@@ -70,7 +70,7 @@ AI helps structure the work; **ASCEND controls the progression rules.**
 
 ---
 
-# ⚔️ Quest Board // Where Work Happens
+# ⚔️ Quest Board 
 
 The Quest Board handles Main, Side, Daily, Project, and other Quest types along with their Subquests, dates, priorities, and completion state.
 
@@ -78,7 +78,7 @@ XP-related values are system-controlled, with safeguards against duplicate rewar
 
 ---
 
-# 🗺️ Projects // Break Down Big Goals
+# 🗺️ Projects 
 
 Large outcomes should not be one giant checkbox.
 
@@ -98,7 +98,7 @@ The **AI Project Architect** can also generate an initial breakdown for larger g
 
 ---
 
-# 📅 Planner // Organize Without XP
+# 📅 Planner 
 
 The Planner handles semesters, courses, lists, schedules, commitments, and weekly timetables.
 
@@ -108,7 +108,7 @@ It exists for things that need structure but should not affect progression.
 
 ---
 
-# 🔁 Habits // Track Consistency
+# 🔁 Habits 
 
 Habits track recurring routines using frequencies, streaks, reminders, and recent activity.
 
@@ -116,7 +116,7 @@ They remain separate from personal XP so repetitive actions cannot be used to fa
 
 ---
 
-# 🧠 Skills // What Am I Building?
+# 🧠 Skills 
 
 ASCEND tracks broader capabilities such as:
 
@@ -126,7 +126,7 @@ Skills provide a long-term view of what kinds of abilities are being practiced t
 
 ---
 
-# 🏆 Progression // Earn the Rank
+# 🏆 Progression 
 
 ASCEND progression follows:
 
@@ -138,7 +138,7 @@ Higher Ranks require more than simply collecting XP. The system is designed arou
 
 ---
 
-# 🌳 The Guide // See the Bigger Journey
+# 🌳 The Guide 
 
 The Guide turns long-term development into a visual progression tree with routes such as University, Career, Engineering, and System Foundation.
 
@@ -146,7 +146,7 @@ It keeps long-term goals visible without filling today's Quest Board with them.
 
 ---
 
-# ☀️ Daily Quests // Win the Day
+# ☀️ Daily Quests 
 
 Daily Quests handle recurring day-to-day work with date-aware behavior and preserved checklist progress.
 
@@ -154,7 +154,7 @@ Features such as **Undo Today** also allow accidental completion to be reversed 
 
 ---
 
-# 🤝 Friends // Coordinate
+# 🤝 Friends 
 
 Friends connect through private codes and can coordinate through shared functionality.
 
@@ -162,7 +162,7 @@ Friend activity cannot grant XP, promote Rank, or modify personal progression.
 
 ---
 
-# 🔥 Focus Circles // Progress Together
+# 🔥 Focus Circles 
 
 Focus Circles support shared study and work sessions through a separate **Circle Contribution XP** system.
 
@@ -172,7 +172,7 @@ Circle XP is isolated from personal progression, keeping friendly competition wi
 
 ---
 
-# 📡 Request Portal // Bring Work Into ASCEND
+# 📡 Request Portal 
 
 ASCEND can generate a private link that allows someone outside the system to propose a task or meeting.
 
@@ -180,7 +180,7 @@ Requests enter ASCEND for review without exposing the user's account or private 
 
 ---
 
-# 📊 Progress Intelligence // See the Progress
+# 📊 Progress Intelligence 
 
 ASCEND keeps completed work visible through recent XP activity, completed Quest counts, active days, progression history, and Rank requirements.
 
@@ -190,7 +190,7 @@ The point is simple: **completed work should not disappear.**
 
 ---
 
-# 🔐 The Vault // Privacy by Design
+# 🔐 The Vault 
 
 ASCEND encrypts application state in the browser using **AES-GCM** before syncing it to the cloud, so the backend stores encrypted state instead of normal readable user data.
 
@@ -207,7 +207,7 @@ The security model also includes:
 
 ---
 
-# 📱 ASCEND Everywhere // PWA
+# 📱 ASCEND Everywhere 
 
 ASCEND is built as a Progressive Web App for desktop, tablet, and mobile.
 
@@ -215,7 +215,7 @@ Cross-device development required handling encrypted synchronization, authentica
 
 ---
 
-# 🏗️ Under the System // Architecture
+# 🏗️ Under the System 
 
 ```text
 ASCEND/
@@ -235,7 +235,7 @@ ASCEND/
 
 ---
 
-# 🤖 Built With AI // Directed by Human Decisions
+# 🤖 Built With AI 
 
 ASCEND was built through **AI-driven development**. AI writes most of the implementation code, while I define the product, architecture, behavior, progression rules, and requirements, then test the results and iterate when something breaks or does not make sense.
 
@@ -257,7 +257,7 @@ Sometimes the right reward for organizing something is simply **having it organi
 
 ---
 
-# 🚧 System Status // Private Beta
+# 🚧 System Status 
 
 **Current Version:** `v0.6.0.11.3`
 
