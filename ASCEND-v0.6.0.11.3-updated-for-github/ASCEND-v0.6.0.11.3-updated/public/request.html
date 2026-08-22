@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06121f">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Send a Private Request // ASCEND</title>
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/request.css?v=0.6.0.11.3">
+</head>
+<body>
+  <main class="request-page">
+    <section class="request-shell" aria-labelledby="requestTitle">
+      <header class="request-brand"><span>A</span><div><strong>ASCEND</strong><small>// PRIVATE REQUEST</small></div><i>ENCRYPTED</i></header>
+      <div class="request-intro">
+        <span class="eyebrow">DIRECT REQUEST CHANNEL</span>
+        <h1 id="requestTitle">Send a private request.</h1>
+        <p>Suggest a meeting, task, or other request. Nothing enters the recipient's Quest Board until they review and accept it.</p>
+      </div>
+      <form id="externalRequestForm" class="request-form" hidden>
+        <div class="form-grid">
+          <label>Request type<select id="requestType"><option value="meeting">Meeting</option><option value="task">Task / collaboration</option><option value="other">Other</option></select></label>
+          <label>Your name<input id="senderName" maxlength="80" autocomplete="name" required placeholder="How should they identify you?"></label>
+          <label class="wide">Contact (optional)<input id="senderContact" maxlength="160" autocomplete="email" placeholder="Email, phone, or preferred contact"></label>
+          <label class="wide">Subject<input id="requestSubject" maxlength="140" required placeholder="What do you want to meet or work on?"></label>
+          <label>Date and time (optional)<input id="requestedFor" type="datetime-local"></label>
+          <label>Estimated duration<input id="requestDuration" type="number" min="5" max="1440" value="30" inputmode="numeric"></label>
+          <label class="wide">Details<textarea id="requestDetails" rows="6" maxlength="3000" required placeholder="Explain the request, what you need, and any useful context."></textarea></label>
+          <label class="website-trap" aria-hidden="true">Website<input id="requestWebsite" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <section class="privacy-card"><span>◆</span><div><strong>End-to-end encrypted for the recipient</strong><small>Your request text is encrypted in this browser. ASCEND's server stores ciphertext and cannot add a task or award XP.</small></div></section>
+        <div id="requestTurnstile" class="request-turnstile" aria-live="polite"></div>
+        <button id="sendRequestButton" type="submit" disabled>Verify, Encrypt & Send</button>
+      </form>
+      <div id="requestStatus" class="request-status">Opening the secure request channel…</div>
+      <footer>This link is a submission channel—not account access. Never include passwords, recovery keys, payment data, or highly sensitive information.</footer>
+    </section>
+  </main>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+  <script src="/request.js?v=0.6.0.11.3" defer></script>
+</body>
+</html>

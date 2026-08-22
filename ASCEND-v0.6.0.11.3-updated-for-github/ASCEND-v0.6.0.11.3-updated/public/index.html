@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#071322" />
+  <meta name="description" content="ASCEND // SYSTEM — private-beta progression OS for quests, skills, ranks, milestones, AI guidance and cross-device sync." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="ASCEND" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://challenges.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="/styles.css?v=0.6.0.11.3" />
+  <title>ASCEND // SYSTEM</title>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div id="sessionBootGate" class="session-boot-gate" aria-live="polite"><span class="entry-logo">A</span><strong>Restoring your private session…</strong></div>
+  <div id="entryGate" class="entry-gate" hidden>
+    <div class="entry-backdrop-orb orb-a"></div><div class="entry-backdrop-orb orb-b"></div>
+    <section class="entry-shell" aria-label="ASCEND access">
+      <div class="entry-intro">
+        <div class="entry-brand"><span class="entry-logo">A</span><div><span class="eyebrow">ASCEND // IDENTITY</span><h1>Build your system.<br><em>Earn your progression.</em></h1></div></div>
+        <p class="entry-lead">Turn real work into quests, projects, skill growth, ranks and a long-term progression history that follows you across devices.</p>
+      </div>
+      <div class="entry-access">
+        <div id="entryTabs" class="entry-tabs"><button id="entrySignInTab" class="active" type="button">Sign In</button><button id="entryCreateTab" type="button">Create Account</button></div>
+        <div id="entryForm" class="entry-form">
+          <label>Email<input id="entryEmail" type="email" autocomplete="email" placeholder="you@example.com"><small id="entryEmailError" class="field-error" hidden></small></label>
+          <label>Password<input id="entryPassword" type="password" autocomplete="current-password" minlength="6" placeholder="••••••••"><small id="entryPasswordError" class="field-error" hidden></small></label>
+          <label id="entryRememberLabel" class="remember-device"><input id="entryRememberDevice" type="checkbox"><span><strong>Remember this private device for 30 days</strong><small>Stores a renewable sign-in token on this device—not your password.</small></span></label>
+          <button id="entryPrimaryButton" class="primary-btn entry-primary" type="button">Enter ASCEND</button>
+          <button id="entryForgotButton" class="text-btn" type="button">Forgot password?</button>
+        </div>
+        <section id="entryTurnstilePanel" class="turnstile-panel" hidden aria-label="Security verification">
+          <div class="turnstile-copy"><span class="eyebrow">BOT PROTECTION</span><strong>Security check</strong><small id="entryTurnstileStatus">Preparing Cloudflare Turnstile…</small></div>
+          <div id="entryTurnstileWidget" class="turnstile-widget"></div>
+        </section>
+        <div id="entryStatus" class="entry-status">Encrypted sync • isolated accounts • recovery-key protected</div>
+        <section id="entryConfirmation" class="entry-confirmation" hidden>
+          <div class="entry-confirmation-icon">✓</div>
+          <span class="eyebrow">EMAIL VERIFICATION</span>
+          <h2>Check your email</h2>
+          <p>We sent a confirmation link to <strong id="entryConfirmationEmail"></strong>. Confirm the address to activate this ASCEND account.</p>
+          <div class="entry-confirmation-actions">
+            <button id="entryResendButton" class="primary-btn" type="button">Resend verification email</button>
+            <button id="entryBackToSignInButton" class="ghost-btn" type="button">Back to Sign In</button>
+          </div>
+          <small>If the message does not appear, check Spam/Junk. Old verification emails created before the production URL was configured may still point to localhost.</small>
+        </section>
+        <div class="entry-guest-actions">
+          <button id="entryGuestButton" class="entry-guest" type="button">
+            <strong id="entryGuestButtonTitle">Continue as Guest</strong>
+            <small id="entryGuestButtonDetail">No email • saved on this device • no cloud sync</small>
+          </button>
+          <button id="entryNewGuestButton" class="entry-new-guest" type="button" hidden>Start Fresh Guest</button>
+        </div>
+        <small class="entry-privacy">Cloud player-state is encrypted in your browser before upload. Account rows are isolated by Supabase RLS. Keep your recovery key private.</small>
+      </div>
+    </section>
+  </div>
+
+  <div id="vaultUnlockGate" class="entry-gate" hidden>
+    <section class="entry-shell compact vault-unlock-shell" role="dialog" aria-modal="true" aria-labelledby="vaultUnlockTitle">
+      <span class="eyebrow">ENCRYPTED ACCOUNT // NEW DEVICE</span>
+      <h2 id="vaultUnlockTitle">Unlock your ASCEND progress</h2>
+      <p class="entry-lead">Your sign-in is valid. This device needs your Recovery File or recovery key once before it can decrypt your existing quests, XP, and profile.</p>
+      <div class="vault-unlock-account"><span>Signed in as</span><strong id="vaultUnlockEmail">ASCEND account</strong></div>
+      <div class="vault-unlock-actions">
+        <label class="file-button vault-file-button">Use Recovery File<input id="vaultUnlockFileInput" type="file" accept=".txt,text/plain" hidden></label>
+        <span>or paste the recovery key</span>
+        <input id="vaultUnlockKeyInput" type="text" autocomplete="off" spellcheck="false" placeholder="ASCEND1…">
+        <button id="vaultUnlockButton" class="primary-btn" type="button">Unlock My Progress</button>
+        <button id="vaultUnlockSignOutButton" class="ghost-btn" type="button">Sign Out</button>
+      </div>
+      <div id="vaultUnlockStatus" class="entry-status">No new profile will be created and nothing will overwrite your cloud progress while this vault is locked.</div>
+      <small class="entry-privacy">Get the Recovery File from a device where this account is already unlocked. Keep it private—it contains the key to your encrypted player-state.</small>
+    </section>
+  </div>
+
+  <div id="onboardingGate" class="onboarding-gate" hidden>
+    <section class="onboarding-shell">
+      <div class="onboarding-progress"><i id="onboardingProgressBar"></i></div>
+      <span class="eyebrow" id="onboardingEyebrow">SYSTEM CALIBRATION // 1 OF 4</span>
+      <div id="onboardingStep1" class="onboarding-step">
+        <h2>What should ASCEND call you?</h2><p>This is your private player identity. You can change it later.</p>
+        <input id="onboardingName" maxlength="40" placeholder="Your name">
+      </div>
+      <div id="onboardingStep2" class="onboarding-step" hidden>
+        <h2>Where are you building right now?</h2><p>Select every area that matters. ASCEND will not assume a profession or lifestyle for you.</p>
+        <div class="focus-selection-tools"><span id="focusSelectionCount">0 selected</span><button id="clearFocusSelectionButton" class="text-btn" type="button">Deselect all</button></div>
+        <div id="onboardingFocusGrid" class="choice-grid focus-grid-expanded">
+          <button data-focus="University">⌬ Education & Study</button><button data-focus="Career">↗ Career & Work</button><button data-focus="Engineering">⚙ Engineering & Technical</button><button data-focus="Medicine & Healthcare">⚕ Medicine & Healthcare</button><button data-focus="Programming & Technology">⌘ Programming & Technology</button><button data-focus="Business & Entrepreneurship">◈ Business & Entrepreneurship</button><button data-focus="Finance">$ Finance</button>
+          <button data-focus="Fitness">▲ Fitness & Strength</button><button data-focus="Sports">◒ Sports</button><button data-focus="Health & Wellness">＋ Health & Wellness</button><button data-focus="Nutrition">◉ Nutrition</button>
+          <button data-focus="Personal">◌ Personal Development</button><button data-focus="Discipline & Habits">◆ Discipline & Habits</button><button data-focus="Productivity">✓ Productivity</button><button data-focus="Mental Skills">◎ Mental Skills</button><button data-focus="Reading & Knowledge">▤ Reading & Knowledge</button><button data-focus="English">A Languages</button>
+          <button data-focus="Creativity">✦ Creativity</button><button data-focus="Art & Design">◇ Art & Design</button><button data-focus="Writing">✎ Writing</button><button data-focus="Research">⌕ Research</button>
+          <button data-focus="Social Life">◍ Social Life</button><button data-focus="Family">⌂ Family</button><button data-focus="Relationships">∞ Relationships</button><button data-focus="Communication">◫ Communication</button><button data-focus="Leadership">↑ Leadership</button><button data-focus="Community & Volunteering">♡ Community & Volunteering</button>
+          <button data-focus="Home">⌂ Home & Life Management</button><button data-focus="Organization">▦ Organization</button><button data-focus="Travel & Experiences">↗ Travel & Experiences</button><button data-focus="Hobbies">☆ Hobbies</button><button data-focus="Values & Spirituality">◈ Values & Spirituality</button><button data-focus="Personal Projects">⬡ Personal Projects</button><button data-focus="Professional Projects">◆ Professional Projects</button>
+        </div>
+        <div class="custom-focus-row"><input id="customFocusInput" maxlength="40" placeholder="Add another area"><button id="addCustomFocusButton" class="ghost-btn" type="button">+ Add custom area</button></div>
+      </div>
+      <div id="onboardingStep3" class="onboarding-step" hidden>
+        <h2>What do you need from the System?</h2><p>Choose the operating style that best matches what you want ASCEND to solve.</p>
+        <div class="choice-grid modes"><button data-mode="Consistency"><strong>Consistency</strong><small>Show up and build momentum</small></button><button data-mode="Execution"><strong>Execution</strong><small>Finish what already matters</small></button><button data-mode="Projects"><strong>Projects</strong><small>Break ambitious goals into systems</small></button><button data-mode="Balance"><strong>Balance</strong><small>Protect several life areas at once</small></button></div>
+      </div>
+      <div id="onboardingStep4" class="onboarding-step" hidden>
+        <h2>Your system is ready.</h2><p>Enter ASCEND to begin. A short guided tour will start automatically the first time and can be skipped or replayed later from System.</p>
+        <div class="onboarding-summary" id="onboardingSummary"></div>
+      </div>
+      <div class="onboarding-actions"><button id="onboardingBackButton" class="ghost-btn" type="button">Back</button><button id="onboardingNextButton" class="primary-btn" type="button">Continue</button></div>
+    </section>
+  </div>
+
+  <div id="passwordRecoveryGate" class="entry-gate" hidden>
+    <section class="entry-shell compact">
+      <span class="eyebrow">ACCOUNT RECOVERY</span><h2>Set a new password</h2><p class="entry-lead">This recovery session came from your verified email link.</p>
+      <label>New password<input id="recoveryNewPassword" type="password" minlength="8" autocomplete="new-password"></label>
+      <button id="recoverySaveButton" class="primary-btn entry-primary" type="button">Update Password</button>
+      <div id="recoveryStatus" class="entry-status"></div>
+    </section>
+  </div>
+
+
+  <div id="systemFlash" class="system-flash" aria-hidden="true">
+    <div class="system-flash__sigil" id="systemFlashSigil">◇</div>
+    <div class="system-flash__inner">
+      <span class="eyebrow" id="systemFlashEyebrow">SYSTEM NOTIFICATION</span>
+      <strong id="systemFlashTitle">QUEST CLEARED</strong>
+      <span id="systemFlashText">Progress recorded.</span>
+      <small id="systemFlashDetail"></small>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar command-rail" aria-label="Primary navigation">
+      <button class="brand brand-v48" data-view="dashboard" aria-label="ASCEND dashboard">
+        <span class="brand-mark">A</span>
+        <span class="brand-copy">
+          <strong>ASCEND</strong>
+          <small>// IDENTITY BETA</small>
+        </span>
+        <i class="build-chip" data-system-version>loading</i>
+      </button>
+
+      <div class="rail-signal" aria-hidden="true"><i></i><i></i><i></i></div>
+
+      <nav class="nav-stack nav-system">
+        <div class="nav-group">
+          <span class="nav-group-label">OPERATIONS</span>
+          <button class="nav-item active" data-view="dashboard"><em>01</em><span>◈</span><strong>Command</strong></button>
+          <button class="nav-item" data-view="quests"><em>02</em><span>◇</span><strong>Quests</strong><b id="questCountBadge">0</b></button>
+          <button class="nav-item" data-view="projects"><em>03</em><span>⬡</span><strong>Projects</strong><b id="projectCountBadge">0</b></button>
+          <button class="nav-item" data-view="planner"><em>04</em><span>▦</span><strong>Planner</strong></button>
+          <button class="nav-item" data-view="habits"><em>05</em><span>↻</span><strong>Habits</strong></button>
+          <button class="nav-item" data-view="circles"><em>06</em><span>◎</span><strong>Circles</strong></button>
+          <button class="nav-item" data-view="friends"><em>07</em><span>♢</span><strong>Friends</strong><b id="friendRequestBadge" hidden>0</b></button>
+        </div>
+        <div class="nav-group">
+          <span class="nav-group-label">PROGRESSION</span>
+          <button class="nav-item" data-view="guide"><em>08</em><span>⌘</span><strong>Guide</strong></button>
+          <button class="nav-item" data-view="progress"><em>09</em><span>⌁</span><strong>Progress</strong></button>
+          <button class="nav-item" data-view="achievements"><em>10</em><span>✦</span><strong>Milestones</strong></button>
+        </div>
+        <div class="nav-group">
+          <span class="nav-group-label">SYSTEM CORE</span>
+          <button class="nav-item" data-view="settings"><em>11</em><span>⚙</span><strong>System</strong></button>
+        </div>
+      </nav>
+
+      <button id="sidebarAccountButton" class="player-dock" type="button" title="Cloud identity and sync">
+        <span class="player-dock-sigil" id="sidebarPlayerInitial">P</span>
+        <span><strong id="sidebarPlayerName">Player</strong><small id="sidebarPlayerMeta">LV.1 • E-RANK</small></span>
+        <i id="sidebarCloudGlyph">◎</i>
+      </button>
+      <button id="sidebarLogoutButton" class="sidebar-logout" type="button" hidden>Log Out</button>
+      <button id="sidebarDeleteGuestButton" class="sidebar-delete-guest" type="button" hidden>Delete Guest Profile</button>
+      <button id="sidebarDeleteAccountButton" class="sidebar-delete-account" type="button" hidden>Delete Account</button>
+
+      <div class="sidebar-foot beta-foot">
+        <div class="sync-status local" id="sidebarSyncStatus"><i></i><span id="cloudStatusSidebar">LOCAL VAULT</span></div>
+        <div class="status-dot"><i></i><span id="aiStatus">Checking intelligence…</span></div>
+        <small>Private beta • installable PWA • <span data-system-version-prefix>v…</span></small>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow" id="viewEyebrow">PLAYER STATUS</span>
+          <h1 id="viewTitle">Command Center</h1>
+        </div>
+        <div class="topbar-actions">
+          <button id="cloudStatusButton" class="cloud-pill local" type="button" title="Account and cloud sync"><i></i><span id="cloudStatusTop">LOCAL VAULT</span></button>
+          <button class="icon-btn" id="installButton" hidden title="Install app">⇩</button>
+          <button class="primary-btn" id="quickQuestButton">+ New Quest</button>
+        </div>
+      </header>
+
+      <section id="dashboardView" class="view active">
+        <section class="hero-grid">
+          <article class="player-card panel" id="playerCard">
+            <div class="player-card__top">
+              <div class="avatar-wrap" id="avatarWrap" data-rank="E">
+                <div class="avatar-orbit orbit-one"></div>
+                <div class="avatar-orbit orbit-two"></div>
+                <div class="avatar-orbit orbit-three"></div>
+                <div class="avatar-core"><span id="avatarInitial">P</span></div>
+                <div class="rank-chip" id="rankChip">E</div>
+              </div>
+
+              <div class="player-meta">
+                <span class="eyebrow">PLAYER</span>
+                <h2 id="playerName">Player</h2>
+                <div class="identity-line">
+                  <p id="playerTitle">Configure your identity in System</p>
+                  <span id="equippedTitleChip" class="title-chip">AWAKENING</span>
+                </div>
+                <div class="level-row">
+                  <strong>LV. <span id="overallLevel">1</span></strong>
+                  <span id="overallRankText">E-RANK</span>
+                  <small id="rankStageText">INITIATION</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="xp-block">
+              <div class="xp-labels">
+                <span>EXPERIENCE</span>
+                <strong><span id="levelXp">0</span> / <span id="levelXpNeeded">120</span> XP</strong>
+              </div>
+              <div class="xp-track"><div id="xpBar" class="xp-bar"></div></div>
+              <div class="xp-total"><span>Total XP</span><strong id="totalXp">0</strong></div>
+            </div>
+          </article>
+
+          <article class="system-card panel" id="directiveCard">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">SYSTEM INTELLIGENCE</span>
+                <h3>Today's Directive</h3>
+              </div>
+              <span id="directiveLoad" class="mode-pill">LOCAL</span>
+            </div>
+            <p id="directiveText" class="directive">Add your first meaningful quest. The system will prioritize the next move.</p>
+            <div id="directiveMini" class="directive-mini"></div>
+            <p id="directiveReason" class="directive-reason"></p>
+            <div class="directive-actions">
+              <div class="directive-button-group"><button id="directiveAction" class="ghost-btn">Create Quest</button><button id="directiveRefreshButton" class="text-btn">Recalculate</button></div>
+              <span id="streakText">0 day streak</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-block command-request-section">
+          <article class="panel command-request-card external-link-settings" id="externalRequestLinkCard">
+            <div class="command-request-copy">
+              <div class="panel-heading"><div><span class="eyebrow">PRIVATE REQUEST CHANNEL</span><h3>Shareable Request Link</h3></div><span id="externalRequestStateBadge" class="mode-pill">SETUP</span></div>
+              <p>Let anyone propose a meeting or task. Encrypted requests wait for your review before entering the Quest Board.</p>
+              <div id="externalRequestUnavailable" class="secure-context-notice" hidden><strong>One-time owner setup required.</strong><small>Apply the v0.6.0.0 Supabase SQL and add the server-only Turnstile secret in Vercel. Testers configure nothing.</small></div>
+            </div>
+            <div class="command-request-controls">
+              <div class="external-link-box"><input id="externalRequestLink" type="text" readonly placeholder="Create your private request link"><button id="copyExternalRequestLinkButton" class="primary-btn" type="button">Copy Link</button></div>
+              <div class="stack-actions"><button id="createExternalRequestLinkButton" class="ghost-btn" type="button">Create Secure Link</button><button id="rotateExternalRequestLinkButton" class="ghost-btn" type="button" hidden>Rotate Link</button><button id="toggleExternalRequestLinkButton" class="danger-btn" type="button" hidden>Disable Link</button><button id="openExternalInboxButton" class="ghost-btn inbox-jump" type="button"><span id="commandExternalPendingCount">0</span> Open Inbox</button></div>
+              <small id="externalRequestPrivacy" class="privacy-note">Keep this capability link private. Rotating it invalidates the previous URL.</small>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-block quest-primary-section">
+          <article class="panel quest-console">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">AI QUEST CONSOLE</span>
+                <h3>Describe the objective naturally</h3>
+              </div>
+              <span id="classifierMode" class="mode-pill">LOCAL+</span>
+            </div>
+            <div class="voice-input-shell"><textarea id="questInput" rows="4" placeholder="Example: Tomorrow I need to finish the report before 6 PM. It should take about 90 minutes."></textarea><button id="voiceQuestButton" class="voice-quest-button" type="button" aria-pressed="false" title="Record a quest by voice"><span>●</span><strong>Voice</strong></button></div>
+            <div class="voice-language-row"><label for="voiceQuestLanguage">Voice language</label><select id="voiceQuestLanguage"><option value="ar-SA">العربية</option><option value="en-US">English</option></select><small>Choose the spoken language before recording for reliable recognition.</small></div>
+            <div id="voiceQuestStatus" class="voice-quest-status" hidden>Listening… speak naturally in Arabic or English.</div>
+            <div class="console-actions">
+              <span>Arabic or English • replies follow your requested/input language • dates understood • multiple lines auto-switch to batch mode</span>
+              <div class="console-button-row single-analysis"><button id="analyzeQuestButton" class="primary-btn">Analyze Quest</button></div>
+            </div>
+            <div id="analysisResult" class="analysis-result" hidden></div>
+          </article>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading" id="skillMatrixHeading">
+            <div>
+              <span class="eyebrow">ATTRIBUTES</span>
+              <h2>Core Skills</h2>
+            </div>
+            <span class="section-note">Transferable capabilities grow from the work behind cleared quests</span>
+          </div>
+          <div id="statsGrid" class="stats-grid"></div>
+        </section>
+
+        <section class="section-block">
+          <article class="panel focus-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">ACTIVE OBJECTIVES</span>
+                <h3>Next Quests</h3>
+              </div>
+              <button class="text-btn" data-view="quests">View all</button>
+            </div>
+            <div id="focusQuestList" class="focus-list"></div>
+          </article>
+        </section>
+
+        <section class="dashboard-signal-grid section-block">
+          <article class="panel season-panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">ACTIVE SEASON</span><h3 id="seasonName">Season 01 // First Protocol</h3></div>
+              <span id="seasonDays" class="mode-pill ai">30 DAYS</span>
+            </div>
+            <p id="seasonText">Build a consistent system around the work that matters to you.</p>
+            <div class="season-track"><i id="seasonBar"></i></div>
+          </article>
+          <article class="panel rank-preview-panel">
+            <div class="panel-heading"><div><span class="eyebrow">RANK PATH</span><h3 id="nextRankTitle">Next Advancement</h3></div></div>
+            <div id="nextRankPreview"></div>
+          </article>
+        </section>
+
+        <section class="section-block">
+          <article class="panel advisor-panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">SYSTEM ADVISOR</span><h3>Load & Growth Review</h3></div>
+              <span id="systemReviewMode" class="mode-pill">READY</span>
+            </div>
+            <div id="systemReviewBody" class="system-review-body">
+              <div class="advisor-empty"><strong>No current review.</strong><span>Run a review after adding real quests.</span></div>
+            </div>
+            <div class="advisor-actions"><button id="runSystemReviewButton" class="ghost-btn">Run System Review</button><small>Manual by design — no hidden API calls.</small></div>
+          </article>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading">
+            <div><span class="eyebrow">RECENT ACTIVITY</span><h2>Progress Log</h2></div>
+          </div>
+          <div id="activityStrip" class="activity-strip"></div>
+        </section>
+      </section>
+
+      <section id="questsView" class="view">
+        <div class="quest-toolbar panel">
+          <div class="toolbar-title">
+            <span class="eyebrow">QUEST BOARD</span>
+            <h2>Quest Management</h2>
+          </div>
+          <div class="filters">
+            <select id="questScopeFilter" aria-label="Filter by work scope">
+              <option value="standalone">Standalone quests</option>
+              <option value="project">Project work</option>
+              <option value="all">All work</option>
+            </select>
+            <select id="categoryFilter" aria-label="Filter by category"><option value="All">All categories</option></select>
+            <select id="typeFilter" aria-label="Filter by type"><option value="All">All quest types</option></select>
+            <select id="statusFilter" aria-label="Filter by status">
+              <option value="active">Active</option>
+              <option value="completed">Completed</option>
+              <option value="all">All</option>
+            </select>
+            <select id="dateFilter" aria-label="Filter by due date">
+              <option value="All">All dates</option>
+              <option value="Today">Due today</option>
+              <option value="Next7">Next 7 days</option>
+              <option value="Overdue">Overdue</option>
+              <option value="NoDate">No date</option>
+            </select>
+            <button id="openAiQuestConsoleButton" class="ghost-btn ai-console-jump" type="button">✦ AI Quest Console</button>
+            <button id="newQuestInBoard" class="primary-btn">+ New Quest</button>
+          </div>
+        </div>
+        <div class="quest-board-intro">
+          <span>Each quest has one operational lane. Use the filters above to narrow the board without mixing its purpose.</span>
+          <small id="questBoardSummary">0 quests shown</small>
+        </div>
+        <section id="externalInboxSection" class="external-inbox-section" hidden>
+          <header class="external-inbox-header">
+            <span class="external-inbox-icon">⇢</span>
+            <div><span class="eyebrow">EXTERNAL REQUEST INBOX</span><h2>Requests from People</h2><p>Encrypted suggestions stay outside your progression until you review and accept one as a Quest.</p></div>
+            <div class="external-inbox-actions"><span id="externalInboxCount" class="external-inbox-count">0</span><button id="refreshExternalRequestsButton" class="ghost-btn" type="button">Refresh</button></div>
+          </header>
+          <div id="externalRequestList" class="external-request-list"></div>
+        </section>
+        <div id="questBoard" class="quest-board"></div>
+      </section>
+
+
+      <section id="projectsView" class="view">
+        <section class="project-hero panel">
+          <div><span class="eyebrow">PROJECT ARCHITECT</span><h2>Build outcomes, not giant task lists.</h2><p>A Project is a real result. Quests are major workstreams. Subquests are the concrete steps inside them.</p></div>
+          <button id="newProjectButton" class="primary-btn">+ New Project</button>
+        </section>
+        <section class="project-ai panel">
+          <div class="panel-heading"><div><span class="eyebrow">AI PROJECT ARCHITECT</span><h3>Describe an ambitious outcome</h3></div><span id="projectAiMode" class="mode-pill">READY</span></div>
+          <textarea id="projectInput" rows="4" placeholder="Example: Build a functional robotic arm by October, including mechanical design, electronics, control, testing and documentation."></textarea>
+          <div class="project-ai-actions"><button id="analyzeProjectButton" class="primary-btn">Architect Project</button><small>AI proposes a hierarchy. Nothing is added until you accept it.</small></div>
+          <div id="projectAnalysis" class="project-analysis" hidden></div>
+        </section>
+        <div class="section-heading"><div><span class="eyebrow">ACTIVE PROGRAMS</span><h2>Project Map</h2></div><span class="section-note">Required quests unlock the final objective</span></div>
+        <div id="projectBoard" class="project-board"></div>
+      </section>
+
+      <section id="plannerView" class="view">
+        <section class="planner-hero panel">
+          <div><span class="eyebrow">PLANNING WORKSPACE</span><h2>Organize first. Turn only real work into Quests.</h2><p>Lists hold sections, errands, reading queues, and preparation. The Semester Planner keeps courses and class times together without awarding XP for planning alone.</p></div>
+          <div class="planner-hero-actions"><button id="newListButton" class="primary-btn" type="button">+ New List</button><button id="newSemesterButton" class="ghost-btn" type="button">+ Semester</button></div>
+        </section>
+        <div class="planner-tabs" role="tablist"><button class="active" data-planner-tab="lists" type="button">Lists</button><button data-planner-tab="semester" type="button">Semester</button><button data-planner-tab="schedule" type="button">Class Schedule</button></div>
+        <section id="plannerListsPanel" class="planner-panel"><div class="section-heading"><div><span class="eyebrow">STRUCTURED LISTS</span><h2>Lists & Sections</h2></div><span class="section-note">Checklists do not grant XP. Convert a real item into one Quest when you are ready to do it.</span></div><div id="plannerListBoard" class="planner-list-board"></div></section>
+        <section id="plannerSemesterPanel" class="planner-panel" hidden><div class="semester-toolbar panel"><select id="semesterSelect" aria-label="Active semester"></select><button id="editSemesterButton" class="ghost-btn" type="button">Edit Semester</button><button id="deleteSemesterButton" class="text-btn danger-text" type="button">Delete</button><button id="addCourseButton" class="primary-btn" type="button">+ Course</button></div><div id="semesterBoard"></div></section>
+        <section id="plannerSchedulePanel" class="planner-panel" hidden><div class="section-heading planner-schedule-heading"><div><span class="eyebrow">WEEKLY TIMETABLE</span><h2>Classes & Fixed Commitments</h2></div><div class="planner-schedule-actions"><span id="scheduleConflictSummary" class="section-note">No conflicts</span><button id="addCommitmentButton" class="ghost-btn" type="button">+ Fixed Time</button></div></div><div id="classScheduleBoard" class="class-schedule-board"></div></section>
+      </section>
+
+      <section id="habitsView" class="view">
+        <section class="habit-hero panel">
+          <div><span class="eyebrow">PERSONAL RHYTHMS</span><h2>Habits that support the work—not another XP farm.</h2><p>Track repeatable behavior separately from Quests. Habit check-ins build a private consistency record, but never grant XP, clear Quests, change Rank, or count as an active progression day.</p></div>
+          <div class="habit-hero-actions"><button id="enableRemindersButton" class="ghost-btn" type="button">Enable Reminders</button><button id="addHabitButton" class="primary-btn" type="button">+ New Habit</button><button id="habitStarterButton" class="ghost-btn" type="button">Starter Pack</button></div>
+        </section>
+        <section class="habit-summary-grid" aria-label="Habit summary">
+          <article class="habit-metric panel"><span>Due Today</span><strong id="habitDueToday">0</strong><small>scheduled habits</small></article>
+          <article class="habit-metric panel"><span>Done Today</span><strong id="habitDoneToday">0</strong><small>private check-ins</small></article>
+          <article class="habit-metric panel"><span>Best Current Streak</span><strong id="habitBestStreak">0</strong><small>scheduled occurrences</small></article>
+          <article class="habit-metric panel"><span>Total Habits</span><strong id="habitTotal">0</strong><small>100 maximum</small></article>
+        </section>
+        <div class="section-heading habit-section-heading"><div><span class="eyebrow">TODAY'S RHYTHMS</span><h2>Habit Board</h2></div><span class="section-note">Missed days remain honest. Checking a habit never awards XP.</span></div>
+        <div id="habitBoard" class="habit-board"></div>
+      </section>
+
+      <section id="circlesView" class="view">
+        <section class="circle-hero panel">
+          <div><span class="eyebrow">PRIVATE SOCIAL PROGRESSION</span><h2>Focus Circles</h2><p>Create a private circle for friends or classmates. Share lectures and focus sessions, then compare opt-in progression summaries without exposing quest text, email addresses, or encrypted player-state.</p></div>
+          <button id="refreshCirclesButton" class="ghost-btn" type="button">Refresh</button>
+        </section>
+        <div id="circlesSignedOut" class="circle-gate panel"><strong>Sign in to use Focus Circles.</strong><span>Guest progress stays local and is never published.</span><button id="circlesOpenAccountButton" class="primary-btn" type="button">Open Account</button></div>
+        <div id="circlesWorkspace" hidden>
+          <section class="circle-entry-grid">
+            <article class="panel circle-entry-card"><span class="eyebrow">CREATE</span><h3>Start a private circle</h3><input id="circleNameInput" maxlength="60" placeholder="Example: Thermodynamics Study Crew"><button id="createCircleButton" class="primary-btn" type="button">Create Circle</button></article>
+            <article class="panel circle-entry-card"><span class="eyebrow">JOIN</span><h3>Use an invite code</h3><input id="circleInviteInput" maxlength="90" autocomplete="off" spellcheck="false" placeholder="Paste the private invite code"><button id="joinCircleButton" class="ghost-btn" type="button">Join Circle</button></article>
+          </section>
+          <div id="circlePrivacyNote" class="circle-privacy-note">Only your display name, rank, level, total XP, seven-day XP, and active-day count are shared with members of circles you join. Leaderboards are friendly beta comparisons—not verified competition or financial rankings.</div>
+          <div id="circleBoard" class="circle-board"></div>
+        </div>
+      </section>
+
+      <section id="friendsView" class="view">
+        <section class="friends-hero panel">
+          <div><span class="eyebrow">PRIVATE CONNECTIONS</span><h2>Friends</h2><p>Add people through a private code—never public email search. Plan a study session, meeting, or shared task, and track each person’s own completion without changing account XP or Rank.</p></div>
+          <button id="refreshFriendsButton" class="ghost-btn" type="button">Refresh</button>
+        </section>
+        <div id="friendsSignedOut" class="circle-gate panel"><strong>Sign in to use Friends.</strong><span>Guest data stays local and no friend profile is published.</span><button id="friendsOpenAccountButton" class="primary-btn" type="button">Open Account</button></div>
+        <div id="friendsWorkspace" hidden>
+          <section class="friends-entry-grid">
+            <article class="panel friend-code-card"><span class="eyebrow">YOUR PRIVATE CODE</span><h3>Let someone add you</h3><div class="friend-code-row"><input id="friendCodeOutput" readonly aria-label="Your private friend code"><button id="copyFriendCodeButton" class="primary-btn" type="button">Copy</button></div><div class="friend-code-actions"><button id="rotateFriendCodeButton" class="ghost-btn" type="button">Rotate Code</button><button id="toggleFriendCodeButton" class="text-btn" type="button">Disable</button></div><small>Rotating invalidates the previous code. Your email and user ID are never placed in it.</small></article>
+            <article class="panel friend-code-card"><span class="eyebrow">ADD A FRIEND</span><h3>Use their private code</h3><input id="friendCodeInput" maxlength="90" autocomplete="off" spellcheck="false" placeholder="Paste a private friend code"><button id="sendFriendRequestButton" class="primary-btn" type="button">Send Request</button><small>Invalid and unavailable codes use the same response to prevent account discovery.</small></article>
+          </section>
+          <label class="friend-privacy-toggle panel"><input id="shareFriendProgressToggle" type="checkbox" checked><span><strong>Appear in the Friends collaboration board</strong><small>Shares only your number of completed friend plans. It never shares quest text, email, XP, Rank, recovery keys, or player-state.</small></span></label>
+          <section id="friendPendingSection" class="friends-section"><div class="section-heading"><div><span class="eyebrow">REQUESTS</span><h2>Pending</h2></div></div><div id="friendPendingList" class="friend-list"></div></section>
+          <section id="friendListSection" class="friends-section"><div class="section-heading"><div><span class="eyebrow">CONNECTIONS</span><h2>Your Friends</h2></div><span class="section-note">Private collaboration only</span></div><div id="friendList" class="friend-list"></div></section>
+          <section class="friends-section panel friend-leaderboard"><div class="panel-heading"><div><span class="eyebrow">CHALLENG YOUR FRIENDS</span><h3>Friends:</h3></div><span class="mode-pill">LEADERBOARD</span></div><p></p><div id="friendLeaderboard"></div></section>
+        </div>
+      </section>
+
+      <section id="progressView" class="view">
+        <section class="summary-grid">
+          <article class="metric panel"><span>Total XP</span><strong id="progressTotalXp">0</strong><small>lifetime earned</small></article>
+          <article class="metric panel"><span>Quests Cleared</span><strong id="progressCompleted">0</strong><small>completion events</small></article>
+          <article class="metric panel"><span>Active Days</span><strong id="progressActiveDays">0</strong><small id="progressStreak">0 current streak</small></article>
+          <article class="metric panel"><span>Overall Rank</span><strong id="progressRank">E</strong><small id="progressRankLabel">Level 1</small></article>
+        </section>
+
+        <section class="rank-zone panel">
+          <div class="panel-heading">
+            <div><span class="eyebrow">ADVANCEMENT PROTOCOL</span><h3 id="rankTrialHeading">E → D Rank Trial</h3></div>
+            <span id="rankEligibility" class="mode-pill">LOCKED</span>
+          </div>
+          <div id="rankTrialBody" class="rank-trial-body"></div>
+        </section>
+
+        <section class="panel chart-panel">
+          <div class="panel-heading"><div><span class="eyebrow">7-DAY SIGNAL</span><h3>XP Activity</h3></div></div>
+          <div id="weeklyChart" class="weekly-chart" aria-label="Seven day XP activity"></div>
+        </section>
+
+        <section class="progress-two-col">
+          <article class="panel">
+            <div class="panel-heading"><div><span class="eyebrow">ATTRIBUTES</span><h3>Skill Progression</h3></div></div>
+            <div id="skillProgressList" class="skill-progress-list"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-heading"><div><span class="eyebrow">SYSTEM LOG</span><h3>Latest Gains</h3></div></div>
+            <div id="progressLog" class="progress-log"></div>
+          </article>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading"><div><span class="eyebrow">LONG-TERM PATH</span><h2>Rank Ladder</h2></div><span class="section-note">S-Rank is intentionally a multi-year target</span></div>
+          <div id="rankLadder" class="rank-ladder"></div>
+        </section>
+      </section>
+
+
+      <section id="guideView" class="view">
+        <section class="guide-hero panel">
+          <div>
+            <span class="eyebrow">SYSTEM PATHWAY</span>
+            <h2>Your Path Forward</h2>
+            <p>Move from foundations to harder real-world outcomes. Each branch unlocks as your actual work proves you are ready.</p>
+          </div>
+          <div class="guide-hero-status">
+            <span>NEXT UNLOCK</span>
+            <strong id="guideNextUnlock">Calibrating…</strong>
+            <small id="guideNextUnlockDetail">The System is reading your progression.</small>
+          </div>
+        </section>
+
+        <section class="guide-overview section-block">
+          <div class="section-heading">
+            <div><span class="eyebrow">QUEST TREE</span><h2>Pathway Map</h2></div>
+            <span class="section-note">Clear nodes in order • harder routes reveal themselves over time</span>
+          </div>
+          <div id="guidePathGrid" class="guide-path-grid"></div>
+        </section>
+
+        <section class="guide-legend panel section-block">
+          <div><i class="guide-dot cleared"></i><span>Cleared</span></div>
+          <div><i class="guide-dot current"></i><span>Current objective</span></div>
+          <div><i class="guide-dot locked"></i><span>Locked</span></div>
+          <small>The Guide never awards free XP. It only visualizes the progression already earned through quests, skills, milestones, and time.</small>
+        </section>
+      </section>
+
+      <section id="achievementsView" class="view">
+        <div class="section-heading achievement-head">
+          <div><span class="eyebrow">MILESTONES</span><h2>Achievement Archive</h2></div>
+          <span id="achievementCount">0 unlocked</span>
+        </div>
+        <div class="achievement-toolbar panel">
+          <select id="achievementGroupFilter" aria-label="Filter milestones by group"><option value="All">All paths</option></select>
+          <select id="achievementStatusFilter" aria-label="Filter milestones by status"><option value="all">All milestones</option><option value="unlocked">Unlocked</option><option value="locked">Locked</option></select>
+          <span id="achievementLegend" class="section-note">Common → Mythic</span>
+        </div>
+        <div id="achievementGrid" class="achievement-grid"></div>
+      </section>
+
+      <section id="settingsView" class="view">
+        <div class="settings-grid">
+          <article class="panel settings-card">
+            <div class="panel-heading"><div><span class="eyebrow">PLAYER PROFILE</span><h3>Identity</h3></div></div>
+            <label>Name<input id="settingsName" type="text" maxlength="40" /></label>
+            <label>Identity line<input id="settingsIdentity" type="text" maxlength="90" /></label>
+            <label>Equipped title<select id="settingsEquippedTitle"></select></label>
+            <div class="settings-focus-control"><span>Focus areas</span><small id="settingsFocusSummary"></small><button id="editFocusAreasButton" class="ghost-btn" type="button">Recalibrate Focus Areas</button></div>
+            <button id="saveProfileButton" class="primary-btn">Save Profile</button>
+          </article>
+
+          <article class="panel settings-card">
+            <div class="panel-heading"><div><span class="eyebrow">ACTIVE SEASON</span><h3>Current Arc</h3></div></div>
+            <label>Season name<input id="settingsSeasonName" type="text" maxlength="80" /></label>
+            <div class="date-pair">
+              <label>Start<input id="settingsSeasonStart" type="date" /></label>
+              <label>End<input id="settingsSeasonEnd" type="date" /></label>
+            </div>
+            <label>Purpose<input id="settingsSeasonPurpose" type="text" maxlength="180" /></label>
+            <button id="saveSeasonButton" class="ghost-btn">Save Season</button>
+          </article>
+
+          <article class="panel settings-card wide cloud-settings" id="cloudSettingsCard">
+            <div class="panel-heading">
+              <div><span class="eyebrow">PRIVATE BETA IDENTITY</span><h3>Cloud Link</h3></div>
+              <span id="cloudConnectionBadge" class="mode-pill">LOCAL</span>
+            </div>
+            <div class="cloud-hero" id="cloudHero">
+              <div class="cloud-orb"><i></i><span>◎</span></div>
+              <div><strong id="cloudHeadline">This device is using the Local Vault</strong><p id="cloudDescription">Your progress stays in this browser until a Supabase beta project is connected.</p></div>
+            </div>
+            <div id="cloudSignedOut" class="cloud-auth-grid">
+              <label>Email<input id="cloudEmail" type="email" autocomplete="email" placeholder="you@example.com" /></label>
+              <label>Password<input id="cloudPassword" type="password" autocomplete="current-password" minlength="6" placeholder="••••••••" /></label>
+              <div class="cloud-auth-actions"><button id="cloudSignInButton" class="primary-btn" type="button">Sign In</button><button id="cloudSignUpButton" class="ghost-btn" type="button">Create Beta Account</button></div>
+            </div>
+            <section id="cloudTurnstilePanel" class="turnstile-panel compact" hidden aria-label="Security verification">
+              <div class="turnstile-copy"><span class="eyebrow">BOT PROTECTION</span><strong>Security check</strong><small id="cloudTurnstileStatus">Preparing Cloudflare Turnstile…</small></div>
+              <div id="cloudTurnstileWidget" class="turnstile-widget"></div>
+            </section>
+            <div id="cloudSignedIn" class="cloud-session" hidden>
+              <div class="cloud-session-top">
+                <div class="cloud-user-line"><span class="cloud-user-avatar" id="cloudUserInitial">U</span><div><strong id="cloudUserEmail">Signed in</strong><small id="cloudLastSync">Waiting for first sync</small></div></div>
+                <div class="cloud-auth-actions"><button id="cloudSyncNowButton" class="primary-btn" type="button">Sync Now</button><button id="cloudSignOutButton" class="ghost-btn" type="button">Sign Out</button></div>
+              </div>
+              <div id="secureContextNotice" class="secure-context-notice" hidden>
+                <span class="eyebrow">SECURE CONTEXT REQUIRED</span>
+                <strong>Encrypted sync needs HTTPS on phones and tablets.</strong>
+                <small id="secureContextDetail">This address is not a secure browser context. Open the HTTPS deployment before importing a recovery key.</small>
+              </div>
+              <div class="vault-control">
+                <div class="vault-control-copy"><span class="eyebrow">CLIENT-SIDE VAULT</span><strong id="cloudVaultStatus">Recovery key ready on this device</strong><small>Your key is needed only once on each new browser or device. Normal sign-ins on a device already unlocked do not ask for it again.</small></div>
+                <div class="vault-actions"><button id="cloudDownloadRecoveryKeyButton" class="primary-btn" type="button">Download Recovery File</button><button id="cloudCopyRecoveryKeyButton" class="ghost-btn" type="button">Copy Key</button></div>
+                <div class="vault-import"><input id="cloudRecoveryKeyInput" type="text" autocomplete="off" spellcheck="false" placeholder="Paste recovery key on a new device" /><button id="cloudImportRecoveryKeyButton" class="ghost-btn" type="button">Unlock Vault</button><label class="file-button compact-file">Use Recovery File<input id="cloudRecoveryFileInput" type="file" accept=".txt,text/plain" hidden /></label></div>
+                <small id="recoveryBackupStatus" class="recovery-backup-status">Recovery backup status is checked per device.</small>
+              </div>
+            </div>
+            <div class="cloud-capability-grid">
+              <div><span>DEVICE SYNC</span><strong>Encrypted cross-device sync</strong><small>Local-first writes • cloud reconciliation • recovery-key unlock</small></div>
+              <div><span>PRIVACY</span><strong>RLS + AES-GCM vault</strong><small>Accounts are isolated and cloud state is stored as ciphertext</small></div>
+              <div><span>MOBILE</span><strong>PWA Command Dock</strong><small>iPhone/iPad-ready responsive navigation</small></div>
+            </div>
+            <small id="cloudPrivacyNote" class="privacy-note"><span data-system-version-prefix>v…</span> encrypts player state in the browser before cloud upload. Keep the recovery key private: losing it can make encrypted cloud progress unrecoverable on a new device.</small>
+          </article>
+
+          <article class="panel settings-card wide intelligence-settings">
+            <div class="panel-heading"><div><span class="eyebrow">INTELLIGENCE CORE</span><h3>Personal System Context</h3></div><span id="aiConnectionBadge" class="mode-pill">LOCAL</span></div>
+            <p id="aiConnectionDetail">Checking AI connection…</p>
+            <label>Long-term context for the System
+              <textarea id="settingsSystemContext" rows="7" maxlength="4000" placeholder="Your priorities, goals, constraints, routines, and what the System should protect when prioritizing work."></textarea>
+            </label>
+            <div class="stack-actions">
+              <button id="saveSystemContextButton" class="primary-btn">Save System Context</button>
+              <button id="testAiButton" class="ghost-btn">Test AI Connection</button>
+            </div>
+            <small class="privacy-note">Gemini keys stay on the local Node server in .env. They are never stored in browser data or exported backups.</small>
+          </article>
+
+          <article class="panel settings-card">
+            <div class="panel-heading"><div><span class="eyebrow">DATA CONTROL</span><h3>Backup & Restore</h3></div></div>
+            <p>Local data remains the offline safety copy. When signed in, encrypted cloud sync can carry the same player state across devices.</p>
+            <div class="stack-actions">
+              <button id="exportButton" class="ghost-btn">Export Backup</button>
+              <label class="file-button">Import Backup<input id="importInput" type="file" accept="application/json" hidden /></label>
+              <button id="resetButton" class="danger-btn">Reset All Data</button>
+            </div>
+          </article>
+
+          <article class="panel settings-card">
+            <div class="panel-heading"><div><span class="eyebrow">GUIDED ONBOARDING</span><h3>System Tour</h3></div></div>
+            <p>Replay the first-run tutorial at any time. The tour highlights every core area and adapts its controls for desktop, tablet, and phone layouts.</p>
+            <button id="runTourButton" class="ghost-btn" type="button">Run Guided Tour</button>
+          </article>
+
+          <article class="panel settings-card" id="notificationSettingsCard">
+            <div class="panel-heading"><div><span class="eyebrow">REMINDERS</span><h3>Notification Center</h3></div><span id="notificationPermissionStatus" class="mode-pill">OFF</span></div>
+            <p>Enable device notifications, then choose reminders inside individual Quests, Habits, and weekly schedule items.</p>
+            <div class="stack-actions"><button id="enableNotificationsSettingsButton" class="primary-btn" type="button">Enable Notifications</button><button id="testNotificationButton" class="ghost-btn" type="button">Send Test</button></div>
+            <small class="privacy-note">Browser delivery depends on device and OS settings. ASCEND never sends reminder text to another account.</small>
+          </article>
+
+          <article class="panel settings-card" id="installGuideCard">
+            <div class="panel-heading"><div><span class="eyebrow">APPLE + PWA</span><h3>Install ASCEND</h3></div><span id="installStateBadge" class="mode-pill">WEB APP</span></div>
+            <p id="installGuideLead">Install this hosted site as an app icon. Updates arrive from the same secure web address; testers do not download the project or configure keys.</p>
+            <ol class="install-steps" id="appleInstallSteps">
+              <li>Open the ASCEND link in <strong>Safari</strong> on iPhone or iPad.</li>
+              <li>Tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.</li>
+              <li>Turn on <strong>Open as Web App</strong> if shown, then tap <strong>Add</strong>.</li>
+            </ol>
+            <button id="installFromSettingsButton" class="primary-btn" type="button">Install / Show Instructions</button>
+            <small class="privacy-note">Use the same account anywhere. On a brand-new browser, import your Recovery File once to decrypt existing cloud progress.</small>
+          </article>
+
+          <article class="panel settings-card" id="betaFeedbackCard">
+            <div class="panel-heading"><div><span class="eyebrow">PRIVATE BETA</span><h3>Feedback & Development</h3></div><span id="feedbackStateBadge" class="mode-pill">READY</span></div>
+            <p>Send a bug, confusing experience, or improvement idea directly to the ASCEND owner.</p>
+            <label>Feedback type<select id="feedbackCategory"><option value="bug">Bug</option><option value="ux">UX / confusing</option><option value="idea">Feature idea</option><option value="other">Other</option></select></label>
+            <label>What happened or what should improve?<textarea id="feedbackMessage" rows="5" maxlength="2000" placeholder="What did you try, what happened, and what did you expect?"></textarea></label>
+            <label class="feedback-diagnostics"><input id="feedbackDiagnostics" type="checkbox" checked><span>Include basic diagnostics: ASCEND version, current page, screen size, and browser name.</span></label>
+            <button id="sendFeedbackButton" class="primary-btn" type="button">Send Feedback</button>
+            <small id="feedbackPrivacyNote" class="privacy-note">Your signed-in email is attached so the owner can follow up. Quest text, XP history, recovery keys, and player-state are never attached.</small>
+          </article>
+
+          <article class="panel settings-card" id="accountSecurityCard">
+            <div class="panel-heading"><div><span class="eyebrow">ACCOUNT SECURITY</span><h3>Identity & Access</h3></div></div>
+            <p id="accountSecuritySummary">Account-scoped local vault • encrypted cloud state • RLS isolation</p>
+            <label>AI privacy mode<select id="aiPrivacyMode"><option value="ai">Semantic AI — send submitted objectives to Gemini</option><option value="local">Private Local — keep quest/project text on this server/device path</option></select></label>
+            <button id="forgotPasswordSettingsButton" class="ghost-btn" type="button">Send Password Reset</button>
+            <button id="exportPrivateBackupButton" class="ghost-btn" type="button">Export My Data</button>
+            <button id="deleteCloudAccountButton" class="danger-btn" type="button" hidden>Delete My Account</button>
+            <small id="accountDeletionAvailability" class="privacy-note">Account deletion requires a secure server-side Supabase admin key and fresh password verification.</small>
+            <small>Export is a local safety copy. Never share a recovery key or backup file publicly. Semantic AI mode sends the objective/project text you choose to analyze to the configured Gemini API.</small>
+          </article>
+          <article class="panel settings-card">
+            <div class="panel-heading"><div><span class="eyebrow">S-RANK IMPACT</span><h3>Exceptional Impact Credit</h3></div><span id="impactCreditBadge" class="mode-pill">0.00%</span></div>
+            <p>Exceptional work can reduce S-Rank time gates by at most 5% total. Ordinary projects receive no credit.</p>
+            <div class="impact-meter"><i id="impactCreditBar"></i></div>
+            <small id="impactCreditText">No exceptional impact credit recorded.</small>
+          </article>
+
+          <article class="panel settings-card wide">
+            <div class="panel-heading"><div><span class="eyebrow">SYSTEM STATUS</span><h3>Architecture</h3></div></div>
+            <div class="architecture-list">
+              <div><span>Storage</span><strong id="architectureStorage">Local Vault + Cloud-ready</strong><small>Offline safety copy with per-user sync cache</small></div>
+              <div><span>AI</span><strong id="settingsAiStatus">Deep local classifier</strong><small>Quest semantics + directives + system reviews</small></div>
+              <div><span>Progression</span><strong>Rank Trials</strong><small>S-Rank begins only after a multi-year gate</small></div>
+              <div><span>Mobile</span><strong>Command Dock PWA</strong><small>Installable phone/tablet layout with mobile system sheet</small></div>
+              <div><span>Version</span><strong data-system-version>loading</strong><small>Identity Beta + Project Architecture build</small></div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav command-dock" aria-label="Mobile navigation">
+      <button class="active" data-view="dashboard"><span>◈</span><small>Command</small></button>
+      <button data-view="quests"><span>◇</span><small>Quests</small></button>
+      <button id="mobileAddButton" class="mobile-add" aria-label="Add quest">+</button>
+      <button data-view="guide"><span>⌘</span><small>Guide</small></button>
+      <button id="mobileMoreButton" type="button"><span>•••</span><small>System</small></button>
+    </nav>
+
+    <div id="mobileSystemSheet" class="mobile-system-sheet" hidden>
+      <button class="sheet-backdrop" id="mobileSheetBackdrop" aria-label="Close system menu"></button>
+      <section class="sheet-panel" role="dialog" aria-modal="true" aria-label="System menu">
+        <div class="sheet-handle"></div>
+        <div class="sheet-player">
+          <span id="sheetPlayerInitial" class="sheet-avatar">P</span>
+          <div><span class="eyebrow">PLAYER NODE</span><strong id="sheetPlayerName">Player</strong><small id="sheetPlayerMeta">LV.1 • E-RANK</small></div>
+          <span id="sheetCloudState" class="mode-pill">LOCAL</span>
+        </div>
+        <div class="sheet-grid">
+          <button data-view="projects"><span>⬡</span><strong>Projects</strong><small>Outcome maps</small></button>
+          <button data-view="planner"><span>▦</span><strong>Planner</strong><small>Lists & semester</small></button>
+          <button data-view="habits"><span>↻</span><strong>Habits</strong><small>XP-free rhythms</small></button>
+          <button data-view="circles"><span>◎</span><strong>Circles</strong><small>Friends & sessions</small></button>
+          <button data-view="friends"><span>♢</span><strong>Friends</strong><small>Private connections</small></button>
+          <button data-view="progress"><span>⌁</span><strong>Progress</strong><small>Ranks & signals</small></button>
+          <button data-view="achievements"><span>✦</span><strong>Milestones</strong><small>Achievement archive</small></button>
+          <button data-view="settings"><span>⚙</span><strong>System</strong><small>Account & settings</small></button>
+          <button id="sheetSyncButton" type="button"><span>◎</span><strong>Cloud Sync</strong><small id="sheetSyncText">Local vault</small></button>
+          <button id="sheetLogoutButton" type="button" hidden><span>↪</span><strong>Log Out</strong><small>Return to welcome</small></button>
+          <button id="sheetDeleteGuestButton" type="button" hidden><span>×</span><strong>Delete Guest Profile</strong><small>Permanently erase Guest data</small></button>
+          <button id="sheetDeleteAccountButton" type="button" hidden><span>×</span><strong>Delete Account</strong><small>Permanently remove this synced account</small></button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div id="guidedTour" class="guided-tour" hidden aria-live="polite">
+    <div id="tourSpotlight" class="tour-spotlight" aria-hidden="true"></div>
+    <section id="tourCard" class="tour-card" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+      <div class="tour-card-top"><span class="eyebrow">SYSTEM TUTORIAL</span><span id="tourProgress" class="mode-pill">1 / 14</span></div>
+      <h2 id="tourTitle">Welcome to the System</h2>
+      <div class="tour-copy"><span id="tourSection" class="tour-section">COMMAND CENTER</span><p id="tourText">The System will walk you through the controls before you start.</p></div>
+      <div class="tour-actions"><button id="tourSkipButton" class="text-btn" type="button">Skip</button><div><button id="tourBackButton" class="ghost-btn" type="button">Back</button><button id="tourNextButton" class="primary-btn" type="button">Next</button></div></div>
+    </section>
+  </div>
+
+  <div id="questDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <form class="dialog-shell" id="questForm">
+      <div class="dialog-head">
+        <div><span class="eyebrow">QUEST PROTOCOL</span><h2 id="dialogTitle">Accept Quest</h2></div>
+        <button id="dialogCloseButton" type="button" class="icon-btn" aria-label="Close">×</button>
+      </div>
+
+      <div class="form-grid">
+        <label class="span-2">Quest title<input id="formTitle" required maxlength="110" /></label>
+        <label>Primary category<select id="formCategory"></select></label>
+        <label>Secondary category<select id="formSecondaryCategory"></select></label>
+        <label>Type<select id="formType"></select></label>
+        <label>Priority<select id="formPriority"><option>Low</option><option selected>Medium</option><option>High</option><option>Critical</option></select></label>
+        <label>Difficulty<select id="formDifficulty"><option>E</option><option selected>D</option><option>C</option><option>B</option><option>A</option><option>S</option></select></label>
+        <label>Estimated minutes<input id="formMinutes" type="number" min="5" max="100000" value="60" /></label>
+        <label>Long-term value<select id="formLongTerm"><option value="1">1 — Minor</option><option value="2" selected>2 — Useful</option><option value="3">3 — Meaningful</option><option value="4">4 — High leverage</option><option value="5">5 — Transformative</option></select></label>
+        <label>Life impact<select id="formImpact"><option value="1">1 — Low</option><option value="2" selected>2 — Moderate</option><option value="3">3 — Strong</option><option value="4">4 — Major</option><option value="5">5 — Defining</option></select></label>
+        <label>System reward<input id="formXp" type="number" readonly /></label>
+        <label>Due date<input id="formDueDate" type="date" /></label>
+        <label class="span-2 reminder-toggle"><input id="formReminderEnabled" type="checkbox"><span>Remind me about this Quest</span></label>
+        <label id="formReminderAtField" class="span-2" hidden>Reminder date and time<input id="formReminderAt" type="datetime-local" /></label>
+        <label class="span-2">Subquests <small>One step per line. Best for Main/Boss quests.</small><textarea id="formSubquests" rows="5" placeholder="Define requirements&#10;Build first prototype&#10;Test the result&#10;Document the project"></textarea></label>
+      </div>
+
+      <div id="rewardExplanation" class="reward-explanation"></div>
+      <small class="reward-auto-note">XP is recalculated automatically when quest settings change.</small>
+
+      <div class="dialog-actions">
+        <button id="cancelQuestButton" type="button" class="ghost-btn">Cancel</button>
+        <button id="discardQuestButton" type="button" class="danger-btn" hidden>Discard This</button>
+        <button id="saveQuestButton" type="submit" class="primary-btn">Accept Quest</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="circleItemDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="circleItemDialogTitle">
+    <form class="dialog-shell" id="circleItemForm">
+      <div class="dialog-head"><div><span class="eyebrow">SHARED CIRCLE PLAN</span><h2 id="circleItemDialogTitle">Add Lecture or Session</h2></div><button id="circleItemDialogClose" type="button" class="icon-btn" aria-label="Close">×</button></div>
+      <div class="form-grid">
+        <label class="span-2">Title<input id="circleItemTitle" required maxlength="120" placeholder="Thermodynamics lecture 4 or group review"></label>
+        <label>Type<select id="circleItemKind"><option value="lecture">Lecture</option><option value="session">Focus session</option><option value="assignment">Assignment</option></select></label>
+        <label>Duration (minutes)<input id="circleItemDuration" type="number" min="5" max="480" value="60"></label>
+        <label class="span-2">Starts at<input id="circleItemStartsAt" type="datetime-local"></label>
+      </div>
+      <div class="dialog-actions"><button id="circleItemCancel" class="ghost-btn" type="button">Cancel</button><button class="primary-btn" type="submit">Share with Circle</button></div>
+    </form>
+  </div>
+
+  <div id="friendPlanDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="friendPlanDialogTitle">
+    <section class="dialog-card friend-plan-dialog-card">
+      <div class="dialog-head"><div><span class="eyebrow">FRIEND COLLABORATION</span><h2 id="friendPlanDialogTitle">Add a Shared Plan</h2></div><button id="friendPlanDialogClose" type="button" class="icon-btn" aria-label="Close">×</button></div>
+      <form id="friendPlanForm" class="quest-form">
+        <label>Title<input id="friendPlanTitle" maxlength="120" required placeholder="Example: Review calculus section 3"></label>
+        <div class="form-grid"><label>Type<select id="friendPlanKind"><option value="task">Task</option><option value="study">Study</option><option value="meeting">Meeting</option></select></label><label>Duration (minutes)<input id="friendPlanDuration" type="number" min="5" max="480" value="30" required></label></div>
+        <label>Date and time (optional)<input id="friendPlanStartsAt" type="datetime-local"></label>
+        <p class="form-note">Each friend marks only their own completion. This plan awards no account XP.</p>
+        <div class="dialog-actions"><button id="friendPlanCancel" type="button" class="ghost-btn">Cancel</button><button type="submit" class="primary-btn">Add Plan</button></div>
+      </form>
+    </section>
+  </div>
+
+  <div id="habitDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="habitDialogTitle">
+    <form class="dialog-shell habit-dialog-shell" id="habitForm">
+      <div class="dialog-head"><div><span class="eyebrow">HABIT PROTOCOL</span><h2 id="habitDialogTitle">Create Habit</h2></div><button id="habitDialogClose" type="button" class="icon-btn" aria-label="Close">×</button></div>
+      <div class="form-grid">
+        <label class="span-2">Habit name<input id="habitTitle" required maxlength="100" placeholder="Example: Review tomorrow's top priority"></label>
+        <label>Category<select id="habitCategory"></select></label>
+        <label>Reminder<select id="habitReminderMode"><option value="none">No reminder</option><option value="once">Once at a time</option><option value="interval">Repeat within a window</option></select></label>
+        <label id="habitTimeField">Preferred time <small>Optional</small><input id="habitTime" type="time"></label>
+        <div id="habitIntervalFields" class="habit-reminder-window span-2" hidden>
+          <label>Repeat every<select id="habitIntervalMinutes"><option value="30">30 minutes</option><option value="60" selected>1 hour</option><option value="90">90 minutes</option><option value="120">2 hours</option><option value="180">3 hours</option><option value="240">4 hours</option></select></label>
+          <label>From<input id="habitWindowStart" type="time" value="08:00"></label>
+          <label>Until<input id="habitWindowEnd" type="time" value="20:00"></label>
+        </div>
+        <fieldset class="habit-days span-2"><legend>Scheduled days</legend><div class="habit-day-grid">
+          <label><input type="checkbox" data-habit-day="0" checked><span>Sun</span></label><label><input type="checkbox" data-habit-day="1" checked><span>Mon</span></label><label><input type="checkbox" data-habit-day="2" checked><span>Tue</span></label><label><input type="checkbox" data-habit-day="3" checked><span>Wed</span></label><label><input type="checkbox" data-habit-day="4" checked><span>Thu</span></label><label><input type="checkbox" data-habit-day="5" checked><span>Fri</span></label><label><input type="checkbox" data-habit-day="6" checked><span>Sat</span></label>
+        </div></fieldset>
+        <label class="span-2">Note <small>Optional cue or minimum standard</small><textarea id="habitNote" rows="4" maxlength="600" placeholder="What makes this check-in honest and complete?"></textarea></label>
+      </div>
+      <p class="privacy-note">Habits are stored inside your isolated player-state. Reminders do not award XP, and an interval habit is still checked once per day. Delivery while closed depends on the installed PWA and browser.</p>
+      <div class="dialog-actions"><button id="habitCancelButton" type="button" class="ghost-btn">Cancel</button><button type="submit" class="primary-btn">Save Habit</button></div>
+    </form>
+  </div>
+
+
+  <div id="projectDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="projectDialogTitle">
+    <form class="dialog-shell project-dialog-shell" id="projectForm">
+      <div class="dialog-head"><div><span class="eyebrow">PROJECT PROTOCOL</span><h2 id="projectDialogTitle">Create Project</h2></div><button id="projectDialogClose" type="button" class="icon-btn">×</button></div>
+      <div class="form-grid">
+        <label class="span-2">Project title<input id="projectTitle" required maxlength="120"></label>
+        <label>Primary category<select id="projectCategory"></select></label>
+        <label>Difficulty<select id="projectDifficulty"><option>C</option><option selected>B</option><option>A</option><option>S</option></select></label>
+        <label class="span-2">Final outcome<input id="projectOutcome" maxlength="220" placeholder="What must exist or be true when this project is complete?"></label>
+        <label>Due date<input id="projectDueDate" type="date"></label>
+        <label>Impact<select id="projectImpact"><option value="1">1 — Useful</option><option value="2">2 — Meaningful</option><option value="3" selected>3 — Strong</option><option value="4">4 — Major</option><option value="5">5 — Exceptional</option></select></label>
+        <label class="span-2">Required quests <small>One major workstream per line</small><textarea id="projectRequiredQuests" rows="5" placeholder="Requirements and architecture
+Mechanical design
+Electronics integration
+System testing"></textarea></label>
+        <label class="span-2">Optional quests <small>Useful, but not required to unlock the final objective</small><textarea id="projectOptionalQuests" rows="3" placeholder="Visual polish
+Extra feature"></textarea></label>
+        <label class="span-2">Final quest<input id="projectFinalQuest" maxlength="140" placeholder="Full-system validation and delivery"></label>
+      </div>
+      <div class="dialog-actions"><button id="projectCancelButton" type="button" class="ghost-btn">Cancel</button><button type="submit" class="primary-btn">Create Project Map</button></div>
+    </form>
+  </div>
+
+  <div id="listDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="listDialogTitle">
+    <form class="dialog-shell" id="listForm">
+      <div class="dialog-head"><div><span class="eyebrow">LIST PROTOCOL</span><h2 id="listDialogTitle">Create List</h2></div><button id="listDialogClose" type="button" class="icon-btn" aria-label="Close">×</button></div>
+      <div class="form-grid"><label class="span-2">List name<input id="listTitle" required maxlength="100" placeholder="Math 201 sections"></label><label>Category<select id="listCategory"></select></label><label>Target date<input id="listDueDate" type="date"></label><label class="span-2">Purpose<textarea id="listDescription" rows="3" maxlength="1000" placeholder="What belongs in this list?"></textarea></label><label class="span-2">Items <small>One item per line. Add minutes after |, for example: Section 1 | 45</small><textarea id="listItems" rows="8" placeholder="Section 1 | 45&#10;Section 2 | 60&#10;Review exercises | 90"></textarea></label></div>
+      <div class="dialog-actions"><button id="listCancelButton" type="button" class="ghost-btn">Cancel</button><button type="submit" class="primary-btn">Save List</button></div>
+    </form>
+  </div>
+
+  <div id="semesterDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="semesterDialogTitle">
+    <form class="dialog-shell" id="semesterForm">
+      <div class="dialog-head"><div><span class="eyebrow">ACADEMIC CYCLE</span><h2 id="semesterDialogTitle">Create Semester</h2></div><button id="semesterDialogClose" type="button" class="icon-btn" aria-label="Close">×</button></div>
+      <div class="form-grid"><label class="span-2">Semester name<input id="semesterName" required maxlength="100" placeholder="Fall 2026"></label><label>Start<input id="semesterStart" type="date"></label><label>End<input id="semesterEnd" type="date"></label><label class="span-2">Focus for this semester<textarea id="semesterPurpose" rows="4" maxlength="1000" placeholder="What matters most this semester?"></textarea></label></div>
+      <div class="dialog-actions"><button id="semesterCancelButton" type="button" class="ghost-btn">Cancel</button><button type="submit" class="primary-btn">Save Semester</button></div>
+    </form>
+  </div>
+
+  <div id="courseDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="courseDialogTitle">
+    <form class="dialog-shell" id="courseForm">
+      <div class="dialog-head"><div><span class="eyebrow">COURSE MAP</span><h2 id="courseDialogTitle">Add Course</h2></div><button id="courseDialogClose" type="button" class="icon-btn" aria-label="Close">×</button></div>
+      <div class="form-grid"><label>Course code<input id="courseCode" maxlength="30" placeholder="MATH 201"></label><label>Course name<input id="courseName" required maxlength="100" placeholder="Differential Equations"></label><label>Focus level<select id="courseFocus"><option value="1">1 — Maintain</option><option value="2">2 — Light</option><option value="3" selected>3 — Normal</option><option value="4">4 — High</option><option value="5">5 — Critical</option></select></label><label>Color<select id="courseColor"><option value="cyan">Cyan</option><option value="violet">Violet</option><option value="green">Green</option><option value="amber">Amber</option><option value="blue">Blue</option><option value="rose">Rose</option></select></label><label class="span-2">Target<input id="courseTarget" maxlength="120" placeholder="Finish all sections before the final review week"></label><label class="span-2">Sections / study units <small>One per line. Add minutes after |.</small><textarea id="courseSections" rows="7" placeholder="Section 1.1 | 45&#10;Section 1.2 | 60"></textarea></label><label class="span-2">Weekly classes <small>DAY | START | END | TYPE | LOCATION</small><textarea id="courseClasses" rows="5" placeholder="Sunday | 08:00 | 09:20 | Class | Building 40&#10;Tuesday | 10:00 | 11:20 | Tutorial | Room 203"></textarea></label><label class="span-2 reminder-toggle"><input id="courseReminderEnabled" type="checkbox"><span>Notify me before every class in this course</span></label><label id="courseReminderMinutesField" hidden>Minutes before<select id="courseReminderMinutes"><option value="5">5 minutes</option><option value="10">10 minutes</option><option value="15" selected>15 minutes</option><option value="30">30 minutes</option><option value="60">1 hour</option></select></label></div>
+      <div class="dialog-actions"><button id="courseCancelButton" type="button" class="ghost-btn">Cancel</button><button type="submit" class="primary-btn">Save Course</button></div>
+    </form>
+  </div>
+
+  <div id="commitmentDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="commitmentDialogTitle">
+    <form class="dialog-shell" id="commitmentForm">
+      <div class="dialog-head"><div><span class="eyebrow">FIXED WEEKLY TIME</span><h2 id="commitmentDialogTitle">Add Fixed Time</h2></div><button id="commitmentDialogClose" type="button" class="icon-btn" aria-label="Close">×</button></div>
+      <div class="form-grid">
+        <label class="span-2">Title<input id="commitmentTitle" required maxlength="100" placeholder="Work shift or protected study block"></label>
+        <label>Day<select id="commitmentDay"><option value="Sunday">Sunday / الأحد</option><option value="Monday">Monday / الاثنين</option><option value="Tuesday">Tuesday / الثلاثاء</option><option value="Wednesday">Wednesday / الأربعاء</option><option value="Thursday">Thursday / الخميس</option><option value="Friday">Friday / الجمعة</option><option value="Saturday">Saturday / السبت</option></select></label>
+        <label>Type<select id="commitmentType"><option>Work</option><option>Study Block</option><option selected>Commitment</option><option>Appointment</option></select></label>
+        <label>Start<input id="commitmentStart" type="time" required></label><label>End<input id="commitmentEnd" type="time" required></label>
+        <label>Color<select id="commitmentColor"><option value="amber">Amber</option><option value="cyan">Cyan</option><option value="violet">Violet</option><option value="green">Green</option><option value="blue">Blue</option><option value="rose">Rose</option></select></label>
+        <label>Location (optional)<input id="commitmentLocation" maxlength="100" placeholder="Office, gym, library…"></label>
+        <label class="span-2 reminder-toggle"><input id="commitmentReminderEnabled" type="checkbox"><span>Notify me before this weekly time</span></label>
+        <label id="commitmentReminderMinutesField" hidden>Minutes before<select id="commitmentReminderMinutes"><option value="5">5 minutes</option><option value="10">10 minutes</option><option value="15" selected>15 minutes</option><option value="30">30 minutes</option><option value="60">1 hour</option></select></label>
+      </div>
+      <p class="privacy-note">Fixed times organize your schedule only. They never award XP or create Quests automatically.</p>
+      <div class="dialog-actions"><button id="commitmentCancelButton" type="button" class="ghost-btn">Cancel</button><button type="submit" class="primary-btn">Save Fixed Time</button></div>
+    </form>
+  </div>
+
+
+  <div id="deleteAccountDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="deleteAccountTitle">
+    <form id="deleteAccountForm" class="dialog-shell delete-account-shell">
+      <div class="dialog-head"><div><span class="eyebrow danger-eyebrow">ACCOUNT DELETION</span><h2 id="deleteAccountTitle">Permanently delete this account?</h2></div><button id="deleteAccountCloseButton" type="button" class="icon-btn" aria-label="Close">×</button></div>
+      <div class="delete-account-warning"><strong>This cannot be undone.</strong><p>Your ASCEND Auth account and encrypted cloud player-state will be removed. This device will also erase the local cache and recovery key for this account.</p></div>
+      <div class="delete-account-identity"><span>Signed in as</span><strong id="deleteAccountEmail">—</strong></div>
+      <label>Current password<input id="deleteAccountPassword" type="password" autocomplete="current-password" placeholder="Enter your current password"><small id="deleteAccountPasswordError" class="field-error" hidden></small></label>
+      <label class="delete-account-ack"><input id="deleteAccountAcknowledge" type="checkbox"><span>I understand that this permanently deletes my ASCEND account, synced player-state, local account cache, and recovery key.</span><small id="deleteAccountAcknowledgeError" class="field-error" hidden></small></label>
+      <section id="deleteTurnstilePanel" class="turnstile-panel compact" hidden aria-label="Security verification">
+        <div class="turnstile-copy"><span class="eyebrow">BOT PROTECTION</span><strong>Final security check</strong><small id="deleteTurnstileStatus">Preparing Cloudflare Turnstile…</small></div>
+        <div id="deleteTurnstileWidget" class="turnstile-widget"></div>
+      </section>
+      <div id="deleteAccountStatus" class="entry-status">Password reauthentication and a fresh security check are required.</div>
+      <div class="dialog-actions"><button id="deleteAccountCancelButton" type="button" class="ghost-btn">Cancel</button><button id="deleteAccountConfirmButton" type="submit" class="danger-btn">Permanently Delete Account</button></div>
+    </form>
+  </div>
+
+  <div id="recoveryBackupDialog" class="quest-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="recoveryBackupTitle">
+    <section class="dialog-shell recovery-backup-shell">
+      <div class="dialog-head"><div><span class="eyebrow">ONE-TIME DEVICE SAFETY</span><h2 id="recoveryBackupTitle">Save your Recovery File</h2></div></div>
+      <div class="recovery-explainer"><span>1</span><div><strong>Why it exists</strong><p>ASCEND encrypts player-state before upload. The server and account password cannot read it.</p></div></div>
+      <div class="recovery-explainer"><span>2</span><div><strong>When you need it</strong><p>Only when linking a new browser/device or after clearing this browser's storage—not on every normal sign-in.</p></div></div>
+      <div class="recovery-explainer"><span>3</span><div><strong>Where to keep it</strong><p>Save the downloaded file in a private password manager or protected personal Files location. Never send it to anyone.</p></div></div>
+      <div class="recovery-backup-actions"><button id="recoveryDialogDownloadButton" class="primary-btn" type="button">Download Recovery File</button><button id="recoveryDialogCopyButton" class="ghost-btn" type="button">Copy Key</button></div>
+      <label class="recovery-confirm"><input id="recoverySavedAcknowledge" type="checkbox"><span>I saved the Recovery File somewhere private and understand ASCEND cannot restore encrypted cloud data without it on a new device.</span></label>
+      <button id="recoveryBackupDoneButton" class="ghost-btn" type="button" disabled>Continue to ASCEND</button>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/system-version.js?v=0.6.0.11.3"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+  <script src="/state-scope.js?v=0.6.0.11.3"></script>
+  <script src="/skill-system.js?v=0.6.0.11.3"></script>
+  <script src="/daily-cycle.js?v=0.6.0.11.3"></script>
+  <script src="/planner-system.js?v=0.6.0.11.3"></script>
+  <script src="/habit-system.js?v=0.6.0.11.3"></script>
+  <script src="/app.js?v=0.6.0.11.3" defer></script>
+</body>
+</html>
