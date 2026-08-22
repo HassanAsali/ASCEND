@@ -1,36 +1,24 @@
 <div align="center">
 
 # 🌌 ASCEND // Personal Operating System (OS)
-### *A custom-built, privacy-first productivity ecosystem born from personal friction, engineered to turn real-world engineering, studies, and long-term grit into a rewarding RPG loop.*
+### *A custom-built, privacy-first productivity ecosystem engineered to turn real-world engineering, studies, and long-term grit into a rewarding RPG progression loop.*
 
 ![Version](https://img.shields.io/badge/Version-v0.6.0.11.3%20(Beta)-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Private_Beta-orange?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20PWA%20(iOS%2C%20Android%2C%20Desktop)-lightgrey?style=for-the-badge)
 ![Tech Stack](https://img.shields.io/badge/Stack-Node.js%20%7C%20Supabase%20%7C%20Vanilla%20JS%20%7C%20AES-GCM-success?style=for-the-badge)
 
-[The Origin Story](#-the-origin-story-why-i-built-ascend) • [Evolution & Architecture](#-system-evolution--architectural-milestones) • [Comprehensive Module Breakdown](#-comprehensive-system-modules-page-by-page) • [System Integrity](#-system-integrity-what-grants-xp) • [Security & Future Vision](#-security--future-commercial-vision)
+[Overview](#-overview) • [Core Modules](#-comprehensive-system-modules-page-by-page) • [System Integrity](#-system-integrity-what-grants-xp) • [Security Vault](#-security--privacy-architecture)
 
 </div>
 
 ---
 
-## 🎯 The Origin Story: Why I Built ASCEND
+## 🎯 Overview
 
-Like many people, I struggled with procrastination and the mental weight of messy, unorganized tasks. Traditional productivity apps either felt rigid, lacked features unless you paid steep monthly subscriptions, or felt disconnected from real personal growth. Since I was already using AI tools, I wondered: *Why not build my own solution?*
+**ASCEND** is a private, custom-built productivity and progression ecosystem crafted entirely through vibe-coding. Built out of a personal need to conquer procrastination and avoid costly, rigid subscription apps, it combines a natural-language AI task parser with a strict, multi-layered RPG progression engine. 
 
-That is how **ASCEND** started. It began as a simple task manager paired with an AI engine to parse tasks and assign XP. Early on, it was easy to exploit—I could artificially inflate rewards for minor things. To fix this, I locked down the progression, making the rank system rigorous and multi-layered, scaling up to **S-Rank (broken down from S1 to S5)**, where advancing requires active days, completed volumes, and strict milestone gates.
-
----
-
-## 🛠️ System Evolution & Architectural Milestones
-
-Building ASCEND was an iterative journey of tackling real-world software challenges:
-
-1. **The AI & Data Layer:** Refined the intake engine so natural language inputs (or voice notes in Arabic/English) get accurately classified into correct quest types and difficulty metrics without manual loopholes.
-2. **Multi-User Security & Isolation:** Moving beyond a local tool, I introduced user accounts and cloud sync. This led to implementing strict Supabase Row-Level Security (RLS) and end-to-end AES-256-GCM client-side encryption to keep user data private.
-3. **Expanding the Scope:** Added a broad range of categories tailored for engineering, academics, fitness, and personal projects so anyone can find a fit.
-4. **Peer Collaboration & Feedback:** Sharing early concepts with friends shaped major modules like **Habits** (routine tracking independent of quests) and the **Focus Circles & Friends** systems, enabling real-time collaborative study without breaking single-player balance.
-5. **Rigorous Debugging:** Every feature—from the Planner and Semester timetables to the Project Architect and Feedback system—involved hours of careful debugging for smooth mobile PWA integration.
+Instead of cheap "XP farming" for simply organizing tasks, ASCEND enforces one absolute rule: **Progression comes exclusively from executing real, verified work.**
 
 ---
 
@@ -106,18 +94,11 @@ ASCEND enforces a strict boundary between planning, organizing, and executing:
 
 ---
 
-## 🛡️ Security & Future Commercial Vision
+## 🛡️ Security & Architecture
 
-### Security Architecture
 * **Client-Side Vault Encryption (AES-256-GCM):** Data is encrypted directly inside the browser using authenticated encryption before uploading. The backend stores strictly ciphertext.
 * **The Recovery File Mechanism:** Because data is client-encrypted, the server holds zero decryption keys. New devices require your immutable `.txt` Recovery File to unlock the vault.
 * **Row-Level Security & Turnstile:** Strict Supabase RLS isolation paired with Cloudflare Turnstile bot defense across authentication gates.
-
-### Potential Commercial Roadmap
-While ASCEND was originally crafted as a personal productivity tool built by a solo developer expanding his programming skills, scaling it into a commercial product would involve:
-1. **Rebranding:** Transitioning the working title, assets, and branding to fit a broader commercial market and avoid legal overlap.
-2. **Intensive Security Audits:** Conducting rigorous penetration testing and compliance checks.
-3. **Sustainable Pricing:** Implementing a lightweight, accessible subscription model designed purely to cover cloud infrastructure and operational server costs with a minimal, fair margin.
 
 ---
 
