@@ -1,7 +1,7 @@
 <div align="center">
 
 # 🌌 ASCEND // Personal Operating System (OS)
-### *A custom-built, privacy-first productivity ecosystem born from the struggle against procrastination, engineered to turn real-world engineering, studies, and long-term grit into a rewarding RPG loop.*
+### *A custom-built, privacy-first productivity ecosystem born from personal friction, engineered to turn real-world engineering, studies, and long-term grit into a rewarding RPG loop.*
 
 ![Version](https://img.shields.io/badge/Version-v0.6.0.11.3%20(Beta)-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Private_Beta-orange?style=for-the-badge)
@@ -16,35 +16,33 @@
 
 ## 🎯 The Origin Story: Why I Built ASCEND
 
-Let’s be honest: **procrastination is the ultimate enemy.** Like many people, I struggled with inertia—looking at a messy, unorganized list of tasks only added mental weight and made me want to avoid them entirely. 
+Like many people, I struggled with procrastination and the mental weight of messy, unorganized tasks. Traditional productivity apps either felt rigid, lacked features unless you paid steep monthly subscriptions, or felt disconnected from real personal growth. Since I was already using AI tools, I wondered: *Why not build my own solution?*
 
-Moreover, standard productivity apps on the market either lacked key features unless you paid hefty monthly subscriptions, or felt disconnected from personal growth. Since I was already paying for AI tools, I asked myself: *Why not leverage that intelligence to build my own solution?*
-
-That is how **ASCEND** was born. It started as a simple core idea: a task manager paired with an AI engine that parses plain text, breaks it down, and schedules it with matching XP and time values. But early on, it was too easy to exploit—I could artificially inflate rewards and farm massive XP with minor tweaks. So, I completely locked down the progression, making the rank system intentionally rigorous and multi-layered, featuring comic-inspired tier grades scaling up to **S-Rank (broken down into S1 through S5)**, where advancing requires genuine consistency, active days, completed volumes, and grueling milestone gates.
+That is how **ASCEND** started. It began as a simple task manager paired with an AI engine to parse tasks and assign XP. Early on, it was easy to exploit—I could artificially inflate rewards for minor things. To fix this, I locked down the progression, making the rank system rigorous and multi-layered, scaling up to **S-Rank (broken down from S1 to S5)**, where advancing requires active days, completed volumes, and strict milestone gates.
 
 ---
 
 ## 🛠️ System Evolution & Architectural Milestones
 
-Building ASCEND wasn't a straight path; it was an iterative journey of tackling real-world engineering and software challenges:
+Building ASCEND was an iterative journey of tackling real-world software challenges:
 
-1. **The AI & Data Layer:** Refined the intake engine so natural language inputs (or voice notes in Arabic/English) get accurately classified into correct quest types, priorities, and difficulty metrics without manual cheating.
-2. **Multi-User Security & Isolation:** Moving beyond a single-user local tool, I introduced user accounts and cloud sync. This forced me down a rabbit hole of fixing critical security vulnerabilities, implementing strict Supabase Row-Level Security (RLS), and setting up end-to-end AES-256-GCM client-side encryption so that user state remains strictly private.
-3. **Expanding the Scope:** Realizing I needed more than just a personal planner, I added a broad range of categories to fit different domains (engineering, academics, fitness, personal projects). 
-4. **Peer Collaboration & Feedback:** I shared early concepts with close friends, whose feedback directly shaped major modules like **Habits** (routine tracking independent of quests) and the **Leaderboard / Focus Circles / Friends** systems, allowing real-time collaborative studying and friendly competition without breaking single-player progression integrity.
-5. **Rigorous Debugging:** Every single feature addition—from the Planner and Semester timetables to the Project Architect, System Tour, and Feedback system—came with hours of intensive debugging behind the scenes to ensure smooth mobile PWA integration and absolute zero data leaks.
+1. **The AI & Data Layer:** Refined the intake engine so natural language inputs (or voice notes in Arabic/English) get accurately classified into correct quest types and difficulty metrics without manual loopholes.
+2. **Multi-User Security & Isolation:** Moving beyond a local tool, I introduced user accounts and cloud sync. This led to implementing strict Supabase Row-Level Security (RLS) and end-to-end AES-256-GCM client-side encryption to keep user data private.
+3. **Expanding the Scope:** Added a broad range of categories tailored for engineering, academics, fitness, and personal projects so anyone can find a fit.
+4. **Peer Collaboration & Feedback:** Sharing early concepts with friends shaped major modules like **Habits** (routine tracking independent of quests) and the **Focus Circles & Friends** systems, enabling real-time collaborative study without breaking single-player balance.
+5. **Rigorous Debugging:** Every feature—from the Planner and Semester timetables to the Project Architect and Feedback system—involved hours of careful debugging for smooth mobile PWA integration.
 
 ---
 
 ## 🏛️ Comprehensive System Modules: Page-by-Page Breakdown
 
-ASCEND is partitioned into an intuitive, immersive command rail. Every screen is purposefully designed to minimize friction and maximize execution clarity:
+ASCEND is partitioned into an intuitive command rail designed to minimize friction and maximize execution clarity:
 
 ### 1. 🎛️ Command Center (The Main Cockpit)
-* **Player Status HUD:** Displays your identity badge, active specialization (e.g., Thermal Mechanical Engineer in Progress), current Level, and Rank tier (e.g., E-Rank: Initiation) alongside lifetime XP progress.
+* **Player Status HUD:** Displays your identity badge, active specialization (e.g., Thermal Mechanical Engineer in Progress), current Level, and Rank tier alongside lifetime XP progress.
 * **Today's Directive:** Surfaces your single highest-value objective for the day to eliminate morning decision fatigue.
 * **Encrypted Shareable Request Channel:** Generates a secure, hashed link allowing outside peers to propose tasks or meetings directly to your private inbox via hybrid encryption.
-* **AI Quest Console (Gemini Engine):** Bilingual natural language intake. Type or use voice recording to brain-dump your work; the AI handles classification, duration estimation, and subquest generation.
+* **AI Quest Console (Gemini Engine):** Bilingual natural language intake. Type or use voice recording; the AI handles classification, duration estimation, and subquest generation.
 * **Core Skills Matrix (Attributes):** Real-time tracking of transferable capabilities (*Execution, Problem Solving, Planning, Systems Thinking, Decision Making, Consistency, etc.*) that grow organically through verified work.
 
 > ![Command Center Preview](command-center.png)
@@ -85,7 +83,7 @@ ASCEND is partitioned into an intuitive, immersive command rail. Every screen is
 ---
 
 ### 7. 📊 Progress, Guide & System (Intelligence & Configuration)
-* **Progress Intelligence:** 7-day XP activity histograms, clear counts, active days, and strict multi-variable Advancement Protocols (e.g., E $\rightarrow$ D Rank Trials).
+* **Progress Intelligence:** 7-day XP activity histograms, clear counts, active days, and strict multi-variable Advancement Protocols.
 * **Progression Guide (Quest Tree):** A visual RPG map unlocking branches (*System Foundation, University Route, Career Route, Engineering Route*).
 * **System Configuration:** Manages profile identity, active seasons, cloud sync vault keys, guided onboarding tours, notification centers, and a direct developer **Feedback & Development** channel.
 
@@ -116,10 +114,10 @@ ASCEND enforces a strict boundary between planning, organizing, and executing:
 * **Row-Level Security & Turnstile:** Strict Supabase RLS isolation paired with Cloudflare Turnstile bot defense across authentication gates.
 
 ### Potential Commercial Roadmap
-While ASCEND was originally crafted as a deeply personal productivity tool built by a solo developer expanding his programming skills, scaling it into a commercial product would involve:
+While ASCEND was originally crafted as a personal productivity tool built by a solo developer expanding his programming skills, scaling it into a commercial product would involve:
 1. **Rebranding:** Transitioning the working title, assets, and branding to fit a broader commercial market and avoid legal overlap.
 2. **Intensive Security Audits:** Conducting rigorous penetration testing and compliance checks.
-3. **Sustainable Pricing:** Implementing a lightweight, accessible subscription model designed purely to cover cloud infrastructure and operational server costs with a minimal, fair margin—ensuring it remains affordable and friction-free for everyday users.
+3. **Sustainable Pricing:** Implementing a lightweight, accessible subscription model designed purely to cover cloud infrastructure and operational server costs with a minimal, fair margin.
 
 ---
 
