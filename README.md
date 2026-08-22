@@ -1,71 +1,69 @@
 <div align="center">
 
 # 🌌 ASCEND // Personal Operating System (OS)
-### *The Ultimate Privacy-Conscious, AI-Assisted Progression & Productivity Ecosystem*
-
-<i>*Note: "ASCEND" is currently a working title used exclusively for this personal, non-commercial project.*[cite: 1]</i>
-
-**A revolutionary, locally-encrypted Progressive Web App (PWA) that transforms real-world work, academic semesters, deep projects, and lifelong commitments into a strictly structured, tamper-proof gamified progression system.**
+### *A human-centric, privacy-first, AI-assisted progression & productivity ecosystem that turns real-world work, studies, and long-term grit into a rewarding RPG progression loop.*
 
 ![Version](https://img.shields.io/badge/Version-v0.6.0.11.3%20(Beta)-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Private_Beta-orange?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20PWA%20(iOS%2C%20Android%2C%20Desktop)-lightgrey?style=for-the-badge)
 ![Tech Stack](https://img.shields.io/badge/Stack-Node.js%20%7C%20Supabase%20%7C%20Vanilla%20JS%20%7C%20AES-GCM-success?style=for-the-badge)
 
-[Core Philosophy](#-the-ascend-core-philosophy) • [Comprehensive Page Breakdown](#-comprehensive-system-architecture--page-breakdown) • [System Integrity & XP Economics](#-system-integrity--xp-economics) • [Security & Privacy Architecture](#-security--privacy-model)
+[Philosophy](#-the-ascend-philosophy-why-it-exists) • [Module Breakdown](#-comprehensive-system-modules-page-by-page) • [System Integrity](#-system-integrity-what-grants-xp) • [Security Vault](#-security--privacy-architecture)
 
 </div>
 
 ---
 
-## 🧠 The ASCEND Core Philosophy
+## 💡 The ASCEND Philosophy: Why It Exists
 
-Traditional task managers show you what is pending, but they fail to visualize long-term personal growth[cite: 1]. Conversely, superficial gamification apps fall into the trap of **"XP Farming,"** rewarding users for merely clicking checkboxes, creating endless lists, or organizing tasks without execution[cite: 1].
+Let’s be honest: standard productivity apps are boring, and standard gamified apps are broken[cite: 1]. 
+* **The Problem with Normal To-Do Lists:** You dump a hundred tasks into a list, stare at them, feel overwhelmed, and check off trivial boxes just to feel productive while avoiding the real heavy lifting[cite: 1].
+* **The Problem with Fake Gamification:** Apps that hand out XP for simply creating a list or clicking checkboxes turn into empty "XP farming" games where you get rewarded for doing absolute zero real-world work[cite: 1].
 
-**ASCEND operates on one uncompromising rule:**  
-> *Progression (XP, Ranks, and Attributes) comes EXCLUSIVELY from executing real, meaningful, verified work[cite: 1]. Planning, scheduling, habit-tracking, and organizing are essential structural tools, but they yield **0 XP**[cite: 1].*
+**ASCEND fixes this with one absolute rule:**  
+> *Progression (XP, Ranks, and Attributes) comes EXCLUSIVELY from executing real, verified, meaningful work[cite: 1]. Planning, scheduling, habit-tracking, and organizing are vital tools to keep your life structured, but they yield **0 XP**[cite: 1].*
 
 ---
 
-## 🏛️ Comprehensive System Architecture & Page Breakdown
+## 🏛️ Comprehensive System Modules: Page-by-Page Breakdown
 
-ASCEND is partitioned into dedicated operational modules accessible via a responsive command rail. Every single screen is engineered with specific constraints, zero bloat, and maximum execution efficiency.
+ASCEND is carefully mapped into an immersive command rail. Every single screen has a distinct purpose, zero clutter, and maximum psychological clarity.
 
-### 1. 🎛️ Command Center (The Main Dashboard)
-The primary cockpit of the OS, providing an instantaneous, high-level telemetry feed of your operational status.
-* **Player Status HUD:** Displays your legal/chosen identity, active specialization (e.g., Thermal Mechanical Engineer in Progress), current Level, Rank tier (e.g., E-Rank: Initiation), and exact progress bar towards the next rank threshold backed by total lifetime XP.
-* **System's Directive:** Dynamically highlights your highest-value objective for the day, pulling metrics from active campaigns with quick actions to jump straight to the Quest Board or recalculate load.
-* **Shareable Request Channel (Encrypted Inbox Gateway):** Generates a secure, hashed URL allowing external parties (who require no ASCEND account) to propose tasks or meetings directly to your private inbox via hybrid RSA/AES-GCM encryption.
-* **AI Quest Console (Gemini Engine):** A natural language intake engine supporting native bilingual processing (Arabic & English). Type or use speech-to-text (with explicit language selectors) to describe work naturally; the engine semantically classifies types, estimates time/difficulty, calculates tamper-proof XP, and suggests subquests.
-* **Core Skills Matrix (Attributes):** Real-time tracking of universal transferable capabilities (*Execution, Problem Solving, Planning, Systems Thinking, Decision Making, Consistency, Learning, Organization, etc.*). Each capability grows organically through verified quest execution rather than empty category filling.
+### 1. 🎛️ Command Center (The Main Cockpit)
+Your high-level telemetry feed and primary dashboard when opening the OS.
+* **Player Status HUD:** Displays your core identity, active specialization (e.g., Thermal Mechanical Engineer in Progress), current Level, Rank tier (e.g., E-Rank: Initiation), and a smooth progress bar tracking total lifetime XP towards your next promotion trial.
+* **Today's Directive:** Dynamically surfaces your highest-value objective for the day, pulling data directly from active campaigns so you never wonder what matters most right now.
+* **Encrypted Shareable Request Channel:** Generates a secure, hashed link that allows outside peers (who need no ASCEND account) to propose tasks, meetings, or collaborations directly into your private inbox using hybrid RSA/AES-GCM encryption.
+* **AI Quest Console (Gemini Engine):** A natural language powerhouse supporting native bilingual input (Arabic and English). Type or use voice capture (with dedicated language selectors) to brain-dump your thoughts; the AI semantically parses the input, classifies the quest type, estimates duration/difficulty, calculates a tamper-proof XP reward, and suggests logical subquests[cite: 1].
+* **Core Skills Matrix (Attributes):** Real-time tracking of universal transferable capabilities (*Execution, Problem Solving, Planning, Systems Thinking, Decision Making, Consistency, Learning, Organization, etc.*). These attributes grow organically through verified quest execution rather than rigid, forced category tags[cite: 1].
 
 ### 2. 📋 Quest Board (Quest Management)
-The rigorous execution engine where raw objectives are managed across strict operational lanes.
-* **Dedicated Lanes:** Filter quests seamlessly across Daily Protocols, Main Objectives, Side Quests, Campaigns, and Boss tiers.
-* **Dated Daily Protocols (Recurrence Engine):** Daily quests are tied strictly to calendar dates. Unfinished daily items automatically reconcile to the current local date while preserving partial checklists, ensuring you never miss a beat without maintaining fake backdated streaks.
-* **The "Undo Today" Safeguard:** Accidental check-ins can be precisely reversed. Clicking "Undo Today" performs an exact mathematical reversal of XP, Attribute growth, and Skill gains instead of relying on a toggle switch.
-* **System-Locked Reward Fields:** To completely eradicate XP-farming cheats, difficulty, priority, and estimated duration fields lock instantly upon AI analysis or quick-add, preventing manual inflation of rewards.
+The rigorous execution engine where tasks are organized into strict operational lanes.
+* **Categorized Lanes:** Seamlessly filter your workspace across Daily Protocols, Main Objectives, Side Quests, Campaigns, and Boss tiers.
+* **Dated Daily Protocols (Recurrence Engine):** Daily tasks are bound strictly to the calendar. If you skip a day, unfinished daily occurrences safely roll over to your current local date while preserving partial checklist progress—preventing fake streak manipulation while keeping your backlog clean[cite: 1].
+* **The "Undo Today" Safeguard:** Accidentally marked a daily quest as done? Clicking "Undo Today" performs an exact mathematical reversal of XP and attribute gains instead of acting as a cheap toggle switch[cite: 1].
+* **System-Locked Reward Fields:** To completely eradicate reward exploitation, difficulty, priority, and estimated duration inputs lock instantly upon AI analysis or quick-add, preventing manual inflation of XP.
 
 ### 3. 🗺️ Projects (Project Map & Architect)
-Designed around the philosophy: *“Build outcomes, not giant task lists.”*
-* **Hierarchical Structure:** Breaks massive, multi-week objectives into structured Workstreams (Quests) and concrete tactical steps (Subquests).
-* **AI Project Architect:** Feeds ambitious outcomes into the local/AI fallback engine to automatically draft a comprehensive work breakdown structure while leaving final acceptance entirely in your hands.
-* **Progress Isolation:** Final project completion bonuses integrate cleanly without duplicating underlying subquest/quest XP economies.
+Built around the core tenet: *“Build outcomes, not giant task lists.”*
+* **Hierarchical Breakdown:** Breaks massive, multi-week objectives into structured Workstreams (Quests) and concrete tactical steps (Subquests).
+* **AI Project Architect:** Feeds ambitious outcomes into the system to draft a comprehensive work breakdown structure while leaving final acceptance entirely in your control.
+* **Progress Protection:** Final project completion bonuses integrate cleanly without duplicating underlying subquest/quest XP economies.
 
 ### 4. 📅 Planner & Semester Engine (The XP-Free Zone)
-Maintains the strict integrity rule: **Organization grants 0 XP.**
+Strictly enforces the rule: **Organization grants 0 XP[cite: 1].**
 * **Structured Lists & Reading Queues:** Reusable lists with section estimates and target dates for errands, reading materials, or prep work. Items convert to Quests only when active execution begins.
 * **Semester & Course Workspaces:** Manages academic course codes, target levels, and syllabus sections.
-* **7-Day Class & Commitment Timetable:** A visual grid tracking classes, appointments, work blocks, and protected study periods equipped with real-time overlap detection.
+* **7-Day Class & Commitment Timetable:** A visual grid tracking classes, appointments, work blocks, and protected study periods equipped with real-time overlap detection[cite: 1].
 
 ### 5. 🌱 Habits (Personal Rhythms & Consistency)
-* **Lightweight Consistency Tracking:** Built for repetitive routines (e.g., hydration, reading) that should never pollute your core Quest progression.
+* **Lightweight Consistency Tracking:** Built for repetitive daily routines (e.g., hydration, reading, fitness) that should never pollute your core Quest progression.
 * **Rolling Windows & Streaks:** Features 7-day rolling viewports, custom weekday selectors, reminder intervals (30m to 4h), and streak counters.
-* **Zero-Progression Rule:** Habit check-ins build a private consistency record but are programmatically barred from awarding account XP, clearing quests, or altering Ranks.
+* **Zero-Progression Rule:** Habit check-ins build a private consistency log but are programmatically barred from awarding account XP, clearing quests, or altering Ranks[cite: 1].
 
 ### 6. 🤝 Circles & Friends (Private Social & Focus Networks)
-Strictly opt-in, highly secure collaboration spaces that protect your primary progress.
-* **Private Focus Circles:** Create or join study groups via token invitations. Members compare opt-in 7-day summaries and share study sessions. Utilizes an isolated **Circle Contribution XP** system (computed server-side based strictly on active duration, capped daily to prevent farming) that never leaks into your main account rank.
+Secure, opt-in collaboration spaces designed to keep your primary progress pure and isolated.
+* **Private Focus Circles:** Create or join study groups via token invitations. Members compare opt-in 7-day summaries and share study sessions. Utilizes an isolated **Circle Contribution XP** system (computed server-side based strictly on active duration, capped daily to prevent farming) that never leaks into your main account rank[cite: 1].
 * **Private Friends Network:** Connect via secure private codes (no public email lookups or account enumeration). Share specific tasks, study sessions, and meetings, tracked via an independent shared completions board that has zero impact on your core progression tree.
 
 ### 7. 📊 Progress & Guide (Intelligence & System Pathways)
