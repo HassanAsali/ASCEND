@@ -16,9 +16,7 @@
 
 ## 🎯 Why I Built This: The Story
 
-Like many people, I struggled with procrastination and the mental weight of messy, unorganized tasks. Traditional productivity apps on the market either lacked key features unless you paid steep monthly subscriptions, or felt completely disconnected from real personal growth. Since I was already using AI tools, I asked myself: *Why not build my own solution?*
-
-That is how **ASCEND** was born. I don't write traditional code by hand; instead, I built this entire ecosystem through **AI-Driven Development (Vibe Coding)**. Acting as the systems architect and product manager, I guided the AI to write every line of code. What started as a simple task parser evolved into a secure Progressive Web App (PWA) featuring client-side encryption, strict database security, and an advanced RPG progression model scaled up to **S-Rank (S1 through S5)**.
+Tired of expensive task apps and personal procrastination, I wanted a tool built strictly around real execution. Since I was already using AI tools, I built **ASCEND** entirely through **AI-Driven Development (Vibe Coding)**. Acting as the architect and product manager, I guided the AI to build a secure PWA with client-side encryption and an RPG progression model scaling up to **S-Rank**.
 
 ---
 
