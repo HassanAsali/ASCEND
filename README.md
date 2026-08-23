@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌌 ASCEND // Personal Progression OS
+#  ASCEND // Personal Progression OS
 
 ### **Your work. Your system. Your progression.**
 
@@ -17,7 +17,7 @@
 
 ---
 
-# 🌌 The Origin // Why ASCEND Exists
+#  The Origin // Why ASCEND Exists
 
 ASCEND started because normal task lists never made progress feel meaningful to me. I wanted something where finishing university work, projects, and everyday tasks actually built toward something instead of disappearing behind a checked box.
 
@@ -279,7 +279,7 @@ The biggest lesson was simple: **AI can generate code quickly, but deciding how 
 
 <div align="center">
 
-# 🌌 ASCEND
+#  ASCEND
 
 ### **Your work. Your system. Your progression.**
 
