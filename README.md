@@ -1,6 +1,6 @@
 <div align="center">
 
-#  ASCEND // Personal Progression OS
+#  ASCEND // Personal Progression 
 
 ### **Your work. Your system. Your progression.**
 
