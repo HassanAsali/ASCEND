@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="167" viewBox="0 0 1200 167" role="img" aria-labelledby="title desc">
+<title id="title">ASCEND — your work, your system, your progression.</title><desc id="desc">ASCEND — your work, your system, your progression.</desc>
+<defs><linearGradient id="base" x2="1" y2="1"><stop stop-color="#0a1929"/><stop offset="1" stop-color="#070e19"/></linearGradient><linearGradient id="accent"><stop stop-color="#52e8ff"/><stop offset="1" stop-color="#b59aff"/></linearGradient></defs>
+<g font-family="Arial, Helvetica, sans-serif"><rect x="1" y="1" width="1198" height="165" rx="18" fill="url(#base)" stroke="#243649" /><text x="600" y="50" fill="#52e8ff" font-size="21" font-weight="700" text-anchor="middle" letter-spacing="1.2">YOUR WORK. YOUR SYSTEM. YOUR PROGRESSION.</text><text x="600" y="92" fill="#eff7ff" font-size="18" font-weight="500" text-anchor="middle">Plan when you want control. Begin when you need a clear next step.</text><text x="600" y="136" fill="#9db4c8" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="2">ASCEND  /  WORKING NAME  /  PRIVATE BETA 0.6.5.5.3</text></g>
+</svg>
