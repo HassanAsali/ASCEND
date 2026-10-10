@@ -1,7 +1,9 @@
-[README.md](https://github.com/user-attachments/files/33292318/README.md)
+[README.md](https://github.com/user-attachments/files/33292421/README.md)
 <div align="center">
 
-# ASCEND
+# ASCEND // Personal Progression
+
+<img src="docs/assets/hero.gif" width="100%" alt="ASCEND: plan with intention, start with a clear next step. Private beta 0.6.5.5.3. Working name.">
 
 ### Your work. Your system. Your progression.
 
@@ -9,14 +11,19 @@
 
 ![Version](https://img.shields.io/badge/Private_Beta-0.6.5.5.3-45DDF4?style=for-the-badge&labelColor=0B1723)
 ![Platform](https://img.shields.io/badge/Platform-Progressive_Web_App-45DDF4?style=for-the-badge&labelColor=0B1723)
-![Stack](https://img.shields.io/badge/Stack-JavaScript_%7C_Node.js_%7C_Supabase-A6BCC9?style=for-the-badge&labelColor=0B1723)
-![Languages](https://img.shields.io/badge/Interface-English_%7C_Arabic-A6BCC9?style=for-the-badge&labelColor=0B1723)
+![Stack](https://img.shields.io/badge/Stack-JavaScript_%7C_Node.js_%7C_Supabase-B59AFF?style=for-the-badge&labelColor=0B1723)
+![Languages](https://img.shields.io/badge/Interface-English_%7C_Arabic-66E2B0?style=for-the-badge&labelColor=0B1723)
 
 **Plan what matters. Find a useful next step. Keep a record of the work you finish.**
 
-ASCEND is the project's **working name**, not a final brand. Its name and visual identity may evolve as the product matures.
+<sub>Private beta · Working name · Built through use and iteration</sub>
+
+**[Explore the experience](#three-experiences-one-workspace) · [See the workspaces](#product-workspaces) · [Inspect the engineering](#engineering-architecture) · [Read the evidence](#verification)**
 
 </div>
+
+> [!NOTE]
+> ASCEND is the project's **working name**, not a final brand. Its name and visual identity may evolve as the product matures.
 
 ---
 
@@ -30,9 +37,20 @@ The current private beta addresses both sides of that problem. It can be a works
 
 Tasks, courses, projects, and routines retain their own purposes. The interface changes with the user's preferred level of control; the underlying work does not split into separate systems.
 
-> **The central product idea:** ASCEND can help me plan, or help me decide the next useful action.
+> [!TIP]
+> **Plan when you want control. Begin when you need a clear next step.**
+> ASCEND can help me plan, or help me decide the next useful action.
 
 This repository is a public showcase of the project. This document describes **private beta 0.6.5.5.3**; selected public code or older repository material should not be treated as the complete current application. The full application source, private configuration, and operational security material are outside the scope of this showcase.
+
+### At a glance
+
+| 🧭 Adaptive control | ⚡ Real execution | 🔐 Clear privacy boundaries |
+| :--- | :--- | :--- |
+| One action, a few choices, or a full dashboard. | Real unfinished steps and recorded completion. | Browser-encrypted progress with distinct local and shared-data scopes. |
+
+<details>
+<summary><strong>📍 Open the complete reading map</strong></summary>
 
 ### Explore
 
@@ -48,7 +66,12 @@ This repository is a public showcase of the project. This document describes **p
 - [Verification](#verification)
 - [Development process and lessons](#development-process-and-lessons)
 
+
+</details>
+
 ---
+
+![01 — The experience: make the next step clear](docs/assets/product.svg)
 
 ## Product principles
 
@@ -67,6 +90,11 @@ ASCEND's features are organized around a few rules that remain consistent across
 The goal is an engaging interface that still respects the user's attention. Progression is feedback about recorded work, not a measurement of a person's worth.
 
 ## Three experiences, one workspace
+
+<picture>
+  <source media="(max-width: 640px)" srcset="docs/assets/experiences-mobile.svg">
+  <img src="docs/assets/experiences.svg" width="100%" alt="Full control, Guided, and Autopilot use the same tasks, projects, and earned history.">
+</picture>
 
 Different people need different amounts of structure. The same person may also want a detailed workspace one day and a quiet starting point the next.
 
@@ -103,6 +131,9 @@ ASCEND is designed around a continuous path from an idea to completed work.
 
 For example, a course task called **Heat Transfer Assignment** can contain separate questions. Study provides its course context, the calendar shows its planned date, and Focus can present **Solve Question 2**. Completing that step updates the original assignment rather than creating a completed copy in another section.
 
+<details>
+<summary><strong>🔎 Inside the deterministic next-action engine</strong></summary>
+
 ### A deterministic next-action engine
 
 Choosing the next action does not require a fresh generative AI request. A local prioritization layer considers the existing schedule, task placement, deadlines, priorities, progress, and recent postponements.
@@ -134,11 +165,27 @@ flowchart TB
     Engine --> Focus["Focus execution"]
     Focus --> Completion["Complete the original step or task"]
     Completion --> Record
+    classDef data fill:#132D40,stroke:#52E8FF,color:#EFF7FF,stroke-width:2px
+    classDef view fill:#20223B,stroke:#B59AFF,color:#EFF7FF
+    classDef done fill:#12392D,stroke:#66E2B0,color:#EFF7FF
+    class Record data
+    class Quests,Study,Calendar,Engine,Focus view
+    class Completion done
 ```
+
+</details>
+
 
 ---
 
 ## Product workspaces
+
+<picture>
+  <source media="(max-width: 640px)" srcset="docs/assets/workspace-map-mobile.svg">
+  <img src="docs/assets/workspace-map.svg" width="100%" alt="A visual map of ASCEND capabilities: Command, Quests, Study, Focus, Projects, Life Systems, Calendar, social coordination, and Progress.">
+</picture>
+
+**Choose a workspace below. Open its details when you want the full explanation.**
 
 ### Command Center
 
@@ -172,21 +219,31 @@ Opening or closing details is a presentation action. It does not modify the task
 
 Quests includes an alternative calendar presentation over the same records. Sequential dates are organized in a four-column layout with compact task cards, date navigation, and a separate place for undated work.
 
+<details>
+<summary><strong>📅 Scheduling, dragging, and date integrity</strong></summary>
+
 Eligible tasks can be rescheduled through desktop dragging, a touch grip, or date/time controls. Planned dates and real deadlines remain separate concepts. A planned-day move should not quietly rewrite the deadline; the date role determines what the action changes.
 
 Calendar cards open the existing task details and retain edit and deletion controls. Recorded completion dates and daily recurrence have separate protections; not every card is freely movable.
 
 <!-- Optional screenshot after capture: ![Quests calendar with compact dated cards](docs/media/ascend-calendar.png) -->
 
+</details>
+
 ### Study Center
 
 Study owns the academic context: semesters, courses, class schedules, study units, and course-related tasks. The weekly timetable belongs here instead of being maintained as an unrelated duplicate elsewhere.
+
+<details>
+<summary><strong>📚 Courses, class schedules, and study methods</strong></summary>
 
 Each course can retain its own notes and study method. Task filtering makes it possible to work on a particular subject without scanning unrelated purchases, personal ideas, or project containers.
 
 User-facing time controls use a 12-hour presentation. Schedule information and commitments can inform recommendations while remaining planning data; attending to a timetable is not automatically treated as rewarded task completion.
 
 <!-- Optional screenshot after capture: ![Study Center with a selected course and its tasks](docs/media/ascend-study.png) -->
+
+</details>
 
 ### Focus space
 
@@ -204,6 +261,9 @@ Session timing and parked thoughts remain device-local rather than entering sync
 
 Projects gives larger outcomes their own structure. A project can contain required and optional quests, real substeps, and a final objective whose availability depends on the required work.
 
+<details>
+<summary><strong>🧩 Structure, dependencies, and project integrity</strong></summary>
+
 The AI Project Architect can propose a breakdown, but the user reviews and adjusts it before it becomes accepted work. Project organization does not replace the progression rules applied to its real quests.
 
 ```mermaid
@@ -213,15 +273,26 @@ flowchart TB
     Project --> Optional["Optional quests"]
     Required --> Steps["Executable substeps"]
     Required --> Final["Final objective unlock"]
+    classDef project fill:#332A1B,stroke:#FFCE83,color:#FFF5E5
+    classDef work fill:#132D40,stroke:#52E8FF,color:#EFF7FF
+    classDef final fill:#12392D,stroke:#66E2B0,color:#EFF7FF
+    class Project project
+    class Required,Optional,Steps work
+    class Final final
 ```
 
 Project tasks keep their canonical IDs and project links when referenced elsewhere. Existing earned progress also constrains rebuilding a project map, helping prevent a planning edit from silently replacing completed work.
 
 <!-- Optional screenshot after capture: ![Project workspace with required work and final objective](docs/media/ascend-projects.png) -->
 
+</details>
+
 ### Life Systems
 
 Life Systems brings routines, personal measures, workout logs, and reviews into a connected workspace. The previous standalone Habits experience is now presented as routines within this area.
+
+<details>
+<summary><strong>🌿 Routines, measures, and real recorded history</strong></summary>
 
 The relationships are explicit: a routine may belong to a life system and may optionally link to a measure. Checking in does not fabricate a measurement. If a value needs recording, the user records it.
 
@@ -233,9 +304,14 @@ Routines, measures, and reviews do not award personal XP simply for being logged
 
 <!-- Optional screenshot after capture: ![Life Systems with routines and recorded measures](docs/media/ascend-life-systems.png) -->
 
+</details>
+
 ### Friends and Focus Circles
 
 Social features support coordination without turning other people into another source of personal progression.
+
+<details>
+<summary><strong>🤝 Private connections and shared contribution</strong></summary>
 
 **Friends** supports private invitations, request review, blocking/removal, and shared plans with each person's own completion state. The compact progress presentation emphasizes names, levels, and ranks; raw XP is not displayed in the Friends workspace. Optional shared progress depends on the relevant sharing choice.
 
@@ -245,17 +321,27 @@ The social layer is intentionally shared information between authorized particip
 
 <!-- Optional screenshot after capture: ![Friends using fictitious demo identities](docs/media/ascend-friends.png) -->
 
+</details>
+
 ### Request portal
 
 An owner-controlled shareable link lets someone outside ASCEND propose work or a meeting without creating an account. Incoming requests are encrypted in the sender's browser and enter a review inbox for the owner.
+
+<details>
+<summary><strong>📨 Receiving and reviewing proposed work</strong></summary>
 
 Receiving a request is not acceptance. A proposal cannot automatically become a quest, change personal progress, or grant rewards. The owner reviews it and decides whether it belongs in the workspace.
 
 Link management remains separate from account access. Encryption protects the submitted content; it does not make a stranger's request trustworthy.
 
+</details>
+
 ### Workspace customization
 
 Customization is available without making every user configure a dashboard before using it.
+
+<details>
+<summary><strong>🎛️ Appearance, layout, information, and feedback</strong></summary>
 
 | Area | Available control |
 | --- | --- |
@@ -270,13 +356,20 @@ Customization is available without making every user configure a dashboard befor
 
 Basic preferences are direct controls. Deeper organization is placed behind advanced layout options. Desktop settings keep navigation and the relevant content area usable without requiring the whole application shell to scroll away.
 
+</details>
+
 ### English and Arabic
 
 Interface language and authored content are different concerns. A user can choose an English interface and still write Arabic tasks, or choose Arabic while keeping English course names and notes.
 
+<details>
+<summary><strong>🌐 Language, direction, and authored content</strong></summary>
+
 The application translates its own controls and explanatory copy, supports right-to-left layout, and formats durations and dates through localization utilities. Authored task text is preserved rather than rewritten during rendering.
 
 An explicit per-account device language choice stays stable during background synchronization. A synced profile preference can seed a new device without unexpectedly changing the interface of an open workspace.
+
+</details>
 
 ---
 
@@ -321,6 +414,8 @@ Drafts also preserve unfinished manual capture and AI-console input locally. The
 
 ---
 
+![02 — The engineering: many views, one source of truth](docs/assets/engineering.svg)
+
 ## Engineering architecture
 
 ASCEND is a browser application built with HTML, CSS, and vanilla JavaScript, backed by Node.js and Supabase. It is installable as a Progressive Web App and deployable through a shared server handler adapted for serverless hosting.
@@ -354,6 +449,12 @@ flowchart TB
     UI --> Service["Validated application services"]
     Service --> Shared["Authorized shared collaboration data"]
     Service --> AI["Configured semantic AI provider"]
+    classDef client fill:#132D40,stroke:#52E8FF,color:#EFF7FF
+    classDef secure fill:#12392D,stroke:#66E2B0,color:#EFF7FF
+    classDef service fill:#20223B,stroke:#B59AFF,color:#EFF7FF
+    class UI,Domain,Local client
+    class Crypto,Cloud secure
+    class Service,Shared,AI service
 ```
 
 The encrypted progress path and the intentionally shared service paths have different data scopes. AI receives content submitted for analysis; it does not need the complete private workspace to decide every next action.
@@ -427,6 +528,8 @@ Application-shell updates are tested separately from task changes. Existing IDs,
 Presentation-only changes are kept outside persisted task state where practical. This allows the interface to improve without rewriting the user's history.
 
 ---
+
+![03 — The boundaries: protect data and explain the scope](docs/assets/privacy.svg)
 
 ## Security and privacy
 
@@ -502,7 +605,11 @@ Keyboard disclosure, clear focus states, and appropriately sized primary touch c
 
 ---
 
+![04 — The evidence: verify what changed](docs/assets/proof.svg)
+
 ## Verification
+
+![Recorded local results: 23 automated suites, 441 browser checks, and a 2,000-task load scenario. Not live CI.](docs/assets/verification.svg)
 
 The current release has a recorded local verification report dated **2026-10-09**. The results below belong to **0.6.5.5.3** rather than an unspecified future build.
 
@@ -514,6 +621,9 @@ The current release has a recorded local verification report dated **2026-10-09*
 | State-load benchmark | Existing **2,000-task / 10,000-step** scenario passed. |
 | Unchanged-sync behavior | Tested path performed no encryption, writes, commits, normalization, or reward scans. |
 | Upgrade continuity | Same-origin service-worker upgrade from **0.6.5.5.2** to **0.6.5.5.3** preserved tested data. |
+
+<details>
+<summary><strong>🧪 Open all seven browser suites and test limitations</strong></summary>
 
 ### Browser coverage by concern
 
@@ -535,7 +645,12 @@ These tests do not substitute for live database-policy verification, real push d
 
 The distinction matters: a repeatable regression test can demonstrate that a specific failure is fixed without proving that every related behavior is perfect.
 
+</details>
+
+
 ---
+
+![05 — The journey: built through use and iteration](docs/assets/evolution.svg)
 
 ## Evolution of the product
 
@@ -560,6 +675,9 @@ ASCEND is an **AI-assisted development project**. AI tools produce much of the i
 
 The workflow is continuous: define a concrete behavior, build it, exercise real interactions, reproduce failures, make a targeted change, and verify that existing behavior survives.
 
+<details>
+<summary><strong>🛠️ Engineering challenges and lessons from iteration</strong></summary>
+
 ### What the project demanded
 
 | Engineering challenge | Lesson |
@@ -576,6 +694,8 @@ The workflow is continuous: define a concrete behavior, build it, exercise real 
 
 The most useful progress came from resolving interactions between features, not simply adding another destination to the sidebar.
 
+</details>
+
 ## Status and next areas of validation
 
 **Current documented version:** `0.6.5.5.3`  
@@ -590,6 +710,8 @@ Branding and public presentation can evolve without treating existing user data 
 
 ---
 
+![ASCEND closing statement](docs/assets/footer.svg)
+
 <div align="center">
 
 ### ASCEND
@@ -601,3 +723,7 @@ Branding and public presentation can evolve without treating existing user data 
 `0.6.5.5.3 · PRIVATE BETA · WORKING NAME`
 
 </div>
+
+[↑ Back to the top](#ascend--personal-progression)
+
+<!-- Maintainer: upload docs/assets together with this README. See UPLOAD.md for packaging and screenshot placement. The graphics are product illustrations, not screenshots or a live CI dashboard. -->
